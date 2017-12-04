@@ -1,6 +1,5 @@
-import { Logger } from 'fsts';
-
-import { hasWindow } from './utils';
+import { Logger, Device } from 'fsts';
+console.log(Device);
 
 const logger = new Logger('Query');
 
@@ -12,7 +11,7 @@ export class Empty {
 
 export class MatchMedia {
     constructor() {
-        if (!hasWindow()) {
+        if (!Device.hasWindow()) {
             return;
         }
 
@@ -101,7 +100,7 @@ export class MatchMedia {
 }
 
 let _instance = new Empty();
-if (hasWindow()) {
+if (Device.hasWindow()) {
     _instance = new MatchMedia();
 }
 export default _instance;

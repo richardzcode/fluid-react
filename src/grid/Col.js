@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 
-import { Logger } from 'fsts';
+import { Logger, JS } from 'fsts';
 
 import MediaQuery from '../MediaQuery';
 import FluidStyle from '../FluidStyle';
-import { undefinedThen } from '../utils';
 
 const logger = new Logger('Col');
 
@@ -30,11 +29,11 @@ export default class Col extends Component {
             xl: 4
         }[vw]
         const counts = [
-            undefinedThen(xs, -1),
-            undefinedThen(sm, -1),
-            undefinedThen(md, -1),
-            undefinedThen(lg, -1),
-            undefinedThen(xl, -1)
+            JS.undefinedThen(xs, -1),
+            JS.undefinedThen(sm, -1),
+            JS.undefinedThen(md, -1),
+            JS.undefinedThen(lg, -1),
+            JS.undefinedThen(xl, -1)
         ]
 
         if (counts[index] !== -1) { return counts[index]; }
