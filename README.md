@@ -8,7 +8,12 @@ npm install --save fluid-react
 
 ## Grid
 
+`App.js`
 ```
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
 import { Row, Col } from 'fluid-react';
 
 class App extends Component {
