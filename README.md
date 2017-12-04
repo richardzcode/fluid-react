@@ -1,6 +1,6 @@
 # fluid-react
 
-Base on Bootstrap 12 column grid system. A mobile-first grid system for React.
+Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layout/grid/). A mobile-first grid system for React.
 
 ```
 npm install --save fluid-react

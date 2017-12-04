@@ -67,9 +67,14 @@ export default class Col extends Component {
     }
 
     render() {
-        const style = this.calcStyle();
+        const { style } = this.props;
+        const styl = Object.assign(
+            {},
+            style,
+            this.calcStyle()
+        );
         return (
-            <div style={style}>
+            <div style={styl}>
                 {this.props.children}
             </div>
         )
