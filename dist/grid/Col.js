@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Logger } from 'fsts';
 
-import Query from '../Query';
+import MediaQuery from '../MediaQuery';
 import FluidStyle from '../FluidStyle';
 import { undefinedThen } from '../utils';
 
@@ -12,7 +12,7 @@ export default class Col extends Component {
     constructor(props) {
         super(props);
 
-        this.onQueryBreakpoint = this.onQueryBreakpoint.bind(this);
+        this.onBreakpoint = this.onBreakpoint.bind(this);
 
         this.state = {
             vw: 'xs'
@@ -54,14 +54,14 @@ export default class Col extends Component {
     }
 
     componentDidMount() {
-        Query.listenBreakpoint(this.onQueryBreakpoint);
+        MediaQuery.listenBreakpoint(this.onBreakpoint);
     }
 
     componentWillUnmount() {
-        Query.unlistenBreakpoint(this.onQueryBreakpoint);
+        MediaQuery.unlistenBreakpoint(this.onBreakpoint);
     }
 
-    onQueryBreakpoint(vw) {
+    onBreakpoint(vw) {
         logger.debug('on breakpoint ' + vw);
         this.setState({ vw: vw });
     }
