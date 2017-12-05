@@ -1,20 +1,56 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-import React, { Component } from 'react';
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-import { JS } from 'fsts';
+var _react = require('react');
 
-import FluidStyle from '../FluidStyle';
+var _react2 = _interopRequireDefault(_react);
 
-export default class W100 extends Component {
-    render() {
-        const { style } = this.props;
-        const styl = Object.assign({}, style, FluidStyle.w100);
-        const p = JS.lessProps(this.props, 'style');
-        return React.createElement(
-            'div',
-            _extends({ className: 'fluid-react-w100', style: styl }, p),
-            this.props.children
-        );
+var _fsts = require('fsts');
+
+var _FluidStyle = require('../FluidStyle');
+
+var _FluidStyle2 = _interopRequireDefault(_FluidStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var W100 = function (_Component) {
+    _inherits(W100, _Component);
+
+    function W100() {
+        _classCallCheck(this, W100);
+
+        return _possibleConstructorReturn(this, (W100.__proto__ || Object.getPrototypeOf(W100)).apply(this, arguments));
     }
-}
+
+    _createClass(W100, [{
+        key: 'render',
+        value: function render() {
+            var style = this.props.style;
+
+            var styl = Object.assign({}, style, _FluidStyle2.default.w100);
+            var p = _fsts.JS.lessProps(this.props, 'style');
+            return _react2.default.createElement(
+                'div',
+                _extends({ className: 'fluid-react-w100', style: styl }, p),
+                this.props.children
+            );
+        }
+    }]);
+
+    return W100;
+}(_react.Component);
+
+exports.default = W100;

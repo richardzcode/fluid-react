@@ -4,7 +4,7 @@
   "description": "Grid system for React",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --presets babel-preset-react --out-dir dist"
+    "build": "babel src --presets react,env --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/richardzcode/fluid-react#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1"
   },
   "dependencies": {
