@@ -70,7 +70,7 @@ export default class Col extends Component {
         const styl = Object.assign({}, style, this.calcStyle());
         return React.createElement(
             'div',
-            { style: styl },
+            { className: 'fluid-react-col', style: styl },
             this.props.children
         );
     }

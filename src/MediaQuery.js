@@ -1,5 +1,4 @@
 import { Logger, Device } from 'fsts';
-console.log(Device);
 
 const logger = new Logger('Query');
 

@@ -73,7 +73,7 @@ export default class Col extends Component {
             this.calcStyle()
         );
         return (
-            <div style={styl}>
+            <div className="fluid-react-col" style={styl}>
                 {this.props.children}
             </div>
         )

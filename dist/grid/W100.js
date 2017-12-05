@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import FluidStyle from '../FluidStyle';
 
-export default class Row extends Component {
+export default class W100 extends Component {
     render() {
         const { style } = this.props;
-        const styl = Object.assign({}, style, FluidStyle.row);
+        const styl = Object.assign({}, style, FluidStyle.w100);
         return React.createElement(
             'div',
-            { className: 'fluid-react-row', style: styl },
+            { className: 'fluid-react-w100', style: styl },
             this.props.children
         );
     }
