@@ -8,54 +8,25 @@ npm install --save fluid-react
 
 ## Grid
 
-`App.js`
 ```
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import { Row, Col } from 'fluid-react';
-
-class App extends Component {
-    render() {
-        const cellStyle = {
-            background: '#aaa',
-            margin: '5px',
-            padding: '5px',
-            border: '1px solid #888'
-        }
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                <Row>
-                    <Col xs="12" sm="6">
-                        <div style={cellStyle}>First Column</div>
-                    </Col>
-                    <Col xs="12" sm="6">
-                        <div style={cellStyle}>Second Column</div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div style={cellStyle}>1</div>
-                    </Col>
-                    <Col>
-                        <div style={cellStyle}>2</div>
-                    </Col>
-                    <Col>
-                        <div style={cellStyle}>3</div>
-                    </Col>
-                </Row>
-            </div>
-        )
-    }
-}
+    <Container>
+        <Row>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">1</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">2</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">3</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">4</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">5</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">6</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">7</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">8</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">9</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">10</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">11</Col>
+            <Col xs="12" sm="6" md="4" lg="3" xl="2">12</Col>
+        </Row>
+    </Container>
 ```
+
+More on [Demo](https://richardzcode.github.io/fluid-react-demo/index.html)
 
 <img src="media/fluid_react.png" width="360px" />
