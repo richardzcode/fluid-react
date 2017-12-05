@@ -72,8 +72,9 @@ export default class Col extends Component {
             style,
             this.calcStyle()
         );
+        const p = JS.lessProps(this.props, 'style');
         return (
-            <div className="fluid-react-col" style={styl}>
+            <div className="fluid-react-col" style={styl} {...p}>
                 {this.props.children}
             </div>
         )

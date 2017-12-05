@@ -1,3 +1,5 @@
+export const Container = {};
+
 export const Row = {
     display: 'flex',
     flexWrap: 'wrap',
@@ -98,6 +100,8 @@ export const W100 = {
 };
 
 const FluidStyle = {
+    container: Container,
+
     row: Row,
 
     col: Col,
