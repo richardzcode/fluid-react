@@ -14,9 +14,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _fsts = require('fsts');
 
-var _MediaQuery = require('../MediaQuery');
+var _mq = require('../mq');
 
-var _MediaQuery2 = _interopRequireDefault(_MediaQuery);
+var _mq2 = _interopRequireDefault(_mq);
 
 var _FluidStyle = require('../FluidStyle');
 
@@ -93,12 +93,12 @@ var Col = function (_Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            _MediaQuery2.default.listenBreakpoint(this.onBreakpoint);
+            _mq2.default.listenBreakpoint(this.onBreakpoint);
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            _MediaQuery2.default.unlistenBreakpoint(this.onBreakpoint);
+            _mq2.default.unlistenBreakpoint(this.onBreakpoint);
         }
     }, {
         key: 'onBreakpoint',

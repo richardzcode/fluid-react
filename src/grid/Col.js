@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Logger, JS } from 'fsts';
 
-import MediaQuery from '../MediaQuery';
+import MediaQuery from '../mq';
 import FluidStyle from '../FluidStyle';
 
 const logger = new Logger('Col');

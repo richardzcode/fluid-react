@@ -17,10 +17,10 @@ Object.keys(_grid).forEach(function (key) {
   });
 });
 
-var _MediaQuery = require('./MediaQuery');
+var _mq = require('./mq');
 
-var _MediaQuery2 = _interopRequireDefault(_MediaQuery);
+var _mq2 = _interopRequireDefault(_mq);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.MediaQuery = _MediaQuery2.default;
+exports.MediaQuery = _mq2.default;
