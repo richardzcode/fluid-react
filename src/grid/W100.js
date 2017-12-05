@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { JS } from 'fsts';
 
-import FluidStyle from '../FluidStyle';
+import GridStyle from './GridStyle';
 
 export default class W100 extends Component {
     render() {
@@ -10,7 +10,7 @@ export default class W100 extends Component {
         const styl = Object.assign(
             {},
             style,
-            FluidStyle.w100
+            GridStyle.w100
         );
         const p = JS.lessProps(this.props, 'style');
         return (

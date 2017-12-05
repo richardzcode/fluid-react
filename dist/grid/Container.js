@@ -14,9 +14,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _fsts = require('fsts');
 
-var _FluidStyle = require('../FluidStyle');
+var _GridStyle = require('./GridStyle');
 
-var _FluidStyle2 = _interopRequireDefault(_FluidStyle);
+var _GridStyle2 = _interopRequireDefault(_GridStyle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40,7 +40,7 @@ var Container = function (_Component) {
         value: function render() {
             var style = this.props.style;
 
-            var styl = Object.assign({}, style, _FluidStyle2.default.container);
+            var styl = Object.assign({}, style, _GridStyle2.default.container);
             var p = _fsts.JS.lessProps(this.props, 'style');
             return _react2.default.createElement(
                 'div',

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Logger, JS } from 'fsts';
 
 import MediaQuery from '../mq';
-import FluidStyle from '../FluidStyle';
+import GridStyle from './GridStyle';
 
 const logger = new Logger('Col');
 
@@ -49,7 +49,7 @@ export default class Col extends Component {
 
     calcStyle() {
         const count = this.cellCount();
-        return FluidStyle['col' + count];
+        return GridStyle['col' + count];
     }
 
     componentDidMount() {

@@ -18,9 +18,9 @@ var _mq = require('../mq');
 
 var _mq2 = _interopRequireDefault(_mq);
 
-var _FluidStyle = require('../FluidStyle');
+var _GridStyle = require('./GridStyle');
 
-var _FluidStyle2 = _interopRequireDefault(_FluidStyle);
+var _GridStyle2 = _interopRequireDefault(_GridStyle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88,7 +88,7 @@ var Col = function (_Component) {
         key: 'calcStyle',
         value: function calcStyle() {
             var count = this.cellCount();
-            return _FluidStyle2.default['col' + count];
+            return _GridStyle2.default['col' + count];
         }
     }, {
         key: 'componentDidMount',

@@ -26,26 +26,22 @@ var MatchMedia = function () {
             return;
         }
 
-        this._match = this._match.bind(this);
+        this._breakpointMatch = this._breakpointMatch.bind(this);
 
         this._breakpointListeners = [];
-        this._ranges = [new _Range2.default('xs', this._match, null, '575px'), new _Range2.default('sm', this._match, '576px', '767px'), new _Range2.default('md', this._match, '768px', '991px'), new _Range2.default('lg', this._match, '992px', '1199px'), new _Range2.default('xl', this._match, '1200px', null)];
+        this._ranges = [new _Range2.default('xs', this._breakpointMatch, null, '575px'), new _Range2.default('sm', this._breakpointMatch, '576px', '767px'), new _Range2.default('md', this._breakpointMatch, '768px', '991px'), new _Range2.default('lg', this._breakpointMatch, '992px', '1199px'), new _Range2.default('xl', this._breakpointMatch, '1200px', null)];
     }
 
     _createClass(MatchMedia, [{
         key: 'listenBreakpoint',
         value: function listenBreakpoint(f) {
-            var exists = this._breakpointListeners.filter(function (func) {
-                return func === f;
-            });
-            if (exists.length > 0) {
+            var appended = _fsts.JS.appendUnique(this._breakpointListeners, f);
+            if (appended) {
+                this._queryForListener(f);
+            } else {
                 logger.debug('breakpoint listener already exists', f);
                 return;
             }
-
-            this._breakpointListeners.push(f);
-
-            this._queryForListener(f);
         }
     }, {
         key: 'unlistenBreakpoint',
@@ -55,8 +51,14 @@ var MatchMedia = function () {
             });
         }
     }, {
-        key: '_match',
-        value: function _match(match, vw) {
+        key: 'attach',
+        value: function attach(style) {}
+    }, {
+        key: 'detach',
+        value: function detach(style) {}
+    }, {
+        key: '_breakpointMatch',
+        value: function _breakpointMatch(match, vw) {
             if (match.matches) {
                 // in vw
                 this._onBreakpoint(vw);

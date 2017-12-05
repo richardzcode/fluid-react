@@ -1,4 +1,4 @@
-import { Logger, Device } from 'fsts';
+import { Logger, JS, Device } from 'fsts';
 
 import Range from './Range';
 
@@ -8,28 +8,26 @@ export default class MatchMedia {
     constructor() {
         if (!Device.hasWindow()) { return; }
 
-        this._match = this._match.bind(this);
+        this._breakpointMatch = this._breakpointMatch.bind(this);
 
         this._breakpointListeners = [];
         this._ranges = [
-            new Range('xs', this._match, null, '575px'),
-            new Range('sm', this._match, '576px', '767px'),
-            new Range('md', this._match, '768px', '991px'),
-            new Range('lg', this._match, '992px', '1199px'),
-            new Range('xl', this._match, '1200px', null)
+            new Range('xs', this._breakpointMatch, null, '575px'),
+            new Range('sm', this._breakpointMatch, '576px', '767px'),
+            new Range('md', this._breakpointMatch, '768px', '991px'),
+            new Range('lg', this._breakpointMatch, '992px', '1199px'),
+            new Range('xl', this._breakpointMatch, '1200px', null)
         ];
     }
 
     listenBreakpoint(f) {
-        const exists = this._breakpointListeners.filter(func => func === f);
-        if (exists.length > 0) {
+        const appended = JS.appendUnique(this._breakpointListeners, f);
+        if (appended) {
+            this._queryForListener(f);
+        } else {
             logger.debug('breakpoint listener already exists', f);
             return;
         }
-
-        this._breakpointListeners.push(f);
-
-        this._queryForListener(f);
     }
 
     unlistenBreakpoint(f) {
@@ -38,7 +36,13 @@ export default class MatchMedia {
         )
     }
 
-    _match(match, vw) {
+    attach(style) {
+    }
+
+    detach(style) {
+    }
+
+    _breakpointMatch(match, vw) {
         if (match.matches) {
             // in vw
             this._onBreakpoint(vw);

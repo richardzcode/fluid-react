@@ -1,106 +1,110 @@
-export const Container = {
-}
+'use strict';
 
-export const Row = {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Container = exports.Container = {};
+
+var Row = exports.Row = {
     display: 'flex',
     flexWrap: 'wrap',
     position: 'relative'
-}
+};
 
-export const Col = {
+var Col = exports.Col = {
     flex: '1 0 0',
     maxWidth: '100%',
     boxSizing: 'border-box'
-}
+};
 
-export const ColAuto = {
+var ColAuto = exports.ColAuto = {
     flex: '0 0 auto',
     maxWidth: '100%',
     width: 'auto',
     boxSizing: 'border-box'
-}
+};
 
-export const Col0 = {
+var Col0 = exports.Col0 = {
     display: 'none'
-}
+};
 
-export const Col1 = {
+var Col1 = exports.Col1 = {
     flex: '0 0 8.33333333%',
     maxWidth: '8.33333333%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col2 = {
+var Col2 = exports.Col2 = {
     flex: '0 0 16.66666667%',
     maxWidth: '16.66666667%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col3 = {
+var Col3 = exports.Col3 = {
     flex: '0 0 25%',
     maxWidth: '25%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col4 = {
+var Col4 = exports.Col4 = {
     flex: '0 0 33.33333333%',
     maxWidth: '33.33333333%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col5 = {
+var Col5 = exports.Col5 = {
     flex: '0 0 41.66666667%',
     maxWidth: '41.66666667%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col6 = {
+var Col6 = exports.Col6 = {
     flex: '0 0 50%',
     maxWidth: '50%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col7 = {
+var Col7 = exports.Col7 = {
     flex: '0 0 58.33333333%',
     maxWidth: '58.33333333%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col8 = {
+var Col8 = exports.Col8 = {
     flex: '0 0 66.66666667%',
     maxWidth: '66.66666667%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col9 = {
+var Col9 = exports.Col9 = {
     flex: '0 0 75%',
     maxWidth: '75%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col10 = {
+var Col10 = exports.Col10 = {
     flex: '0 0 83.33333333%',
     maxWidth: '83.33333333%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col11 = {
+var Col11 = exports.Col11 = {
     flex: '0 0 91.66666667%',
     maxWidth: '91.66666667%',
     boxSizing: 'border-box'
-}
+};
 
-export const Col12 = {
+var Col12 = exports.Col12 = {
     flex: '0 0 100%',
     maxWidth: '100%',
     boxSizing: 'border-box'
-}
+};
 
-export const W100 = {
+var W100 = exports.W100 = {
     width: '100%'
-}
+};
 
-const FluidStyle = {
+var GridStyle = {
     container: Container,
 
     row: Row,
@@ -122,6 +126,6 @@ const FluidStyle = {
     col12: Col12,
 
     w100: W100
-}
+};
 
-export default FluidStyle;
+exports.default = GridStyle;
