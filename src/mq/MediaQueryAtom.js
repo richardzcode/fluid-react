@@ -1,4 +1,4 @@
-export default class StyleWithMediaQuery {
+export default class MediaQueryAtom {
     constructor(style, notifier) {
         if (!style) { return; }
 
@@ -34,15 +34,19 @@ export default class StyleWithMediaQuery {
             };
             mql.addListener(listener);
 
+            matchStyle._matches = mql.matches;
             that._queries.push({
                 matchStyle: matchStyle,
                 mql: mql,
                 listener: listener
             });
         });
+        that._applyMatches();
     }
 
     _applyMatches() {
+        if (!this._notifier) { return; } // do nothing
+
         const new_style = Object.assign({}, this._old_style);
         this._queries.forEach(query => {
             const { matchStyle } = query;
@@ -51,7 +55,6 @@ export default class StyleWithMediaQuery {
             }
         });
         
-        Object.assign(this._style, new_style);
-        if (this._notifier) { this._notifier(this._style); }
+        this._notifier(new_style);
     }
 }

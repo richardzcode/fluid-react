@@ -1,7 +1,7 @@
 import { Logger, JS, Device } from 'fsts';
 
 import Range from './Range';
-import StyleWithMediaQuery from './StyleWithMediaQuery';
+import MediaQueryAtom from './MediaQueryAtom';
 
 const logger = new Logger('MatchMedia');
 
@@ -51,31 +51,31 @@ export default class MatchMedia {
             }
         }
 
-        const swmqs = [];
+        const atoms = [];
         if (JS.hasProps(style, '@media.*')) {
-            const swmq = new StyleWithMediaQuery(style, notifier);
-            swmqs.push(swmq);
+            const atom = new MediaQueryAtom(style, notifier);
+            atoms.push(atom);
         }
 
         JS.traverseProps(style, (path, key, val) => {
             if (JS.hasProps(val, '@media.*')) {
-                const swmq = new StyleWithMediaQuery(val, (new_style) => {
+                const atom = new MediaQueryAtom(val, (new_style) => {
                     notifier(style); // notify with root style.
                 });
-                swmqs.push(swmq);
+                atoms.push(atom);
             }
         });
 
         this._styles.push({
             style: style,
-            swmqs: swmqs
+            atoms: atoms
         });
     }
 
     detach(style) {
         const found = this._styles.filter(entry => entry.style === style);
         if (found.length > 0) {
-            found[0].swmqs.forEach(swmq => swmq.unlisten());
+            found[0].atoms.forEach(atom => atom.unlisten());
         }
     }
 

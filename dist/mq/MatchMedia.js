@@ -12,9 +12,9 @@ var _Range = require('./Range');
 
 var _Range2 = _interopRequireDefault(_Range);
 
-var _StyleWithMediaQuery = require('./StyleWithMediaQuery');
+var _MediaQueryAtom = require('./MediaQueryAtom');
 
-var _StyleWithMediaQuery2 = _interopRequireDefault(_StyleWithMediaQuery);
+var _MediaQueryAtom2 = _interopRequireDefault(_MediaQueryAtom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -71,24 +71,24 @@ var MatchMedia = function () {
                 };
             }
 
-            var swmqs = [];
+            var atoms = [];
             if (_fsts.JS.hasProps(style, '@media.*')) {
-                var swmq = new _StyleWithMediaQuery2.default(style, notifier);
-                swmqs.push(swmq);
+                var atom = new _MediaQueryAtom2.default(style, notifier);
+                atoms.push(atom);
             }
 
             _fsts.JS.traverseProps(style, function (path, key, val) {
                 if (_fsts.JS.hasProps(val, '@media.*')) {
-                    var _swmq = new _StyleWithMediaQuery2.default(val, function (new_style) {
+                    var _atom = new _MediaQueryAtom2.default(val, function (new_style) {
                         notifier(style); // notify with root style.
                     });
-                    swmqs.push(_swmq);
+                    atoms.push(_atom);
                 }
             });
 
             this._styles.push({
                 style: style,
-                swmqs: swmqs
+                atoms: atoms
             });
         }
     }, {
@@ -98,8 +98,8 @@ var MatchMedia = function () {
                 return entry.style === style;
             });
             if (found.length > 0) {
-                found[0].swmqs.forEach(function (swmq) {
-                    return swmq.unlisten();
+                found[0].atoms.forEach(function (atom) {
+                    return atom.unlisten();
                 });
             }
         }

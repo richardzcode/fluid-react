@@ -2,12 +2,48 @@
 
 Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layout/grid/). A mobile-first grid system for React.
 
+* [Install](#install)
+* [CSS](#css)
+* [Grid](#grid)
+
+More on [Demo](https://richardzcode.github.io/fluid-react-demo/index.html)
+
 ## Install
 
 No CSS file needed.
 
 ```
 npm install --save fluid-react
+```
+
+## CSS
+
+MediaQuery
+
+```
+    const style = {
+        margin: 'auto 1rem',
+        padding: '2rem',
+        color: '#fff',
+        backgroundColor: '#0275d8',
+        borderColor: '#0275d8',
+        '@media (min-width: 576px) and (max-width: 767px)': {
+            backgroundColor: '#5cb85c',
+            borderColor: '#5cb85c'
+        },
+        '@media (min-width: 768px) and (max-width: 991px)': {
+            backgroundColor: '#5bc0de',
+            borderColor: '#5bc0de'
+        },
+        '@media (min-width: 992px) and (max-width: 1199px)': {
+            backgroundColor: '#f0ad4e',
+            borderColor: '#f0ad4e'
+        },
+        '@media (min-width: 1200px)': {
+            backgroundColor: '#d9534f',
+            borderColor: '#d9534f'
+        }
+    }
 ```
 
 ## Grid
@@ -30,7 +66,5 @@ npm install --save fluid-react
         </Row>
     </Container>
 ```
-
-More on [Demo](https://richardzcode.github.io/fluid-react-demo/index.html)
 
 <img src="media/fluid_react.png" width="360px" />
