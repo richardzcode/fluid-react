@@ -1,6 +1,7 @@
 import { Logger, JS, Device } from 'fsts';
 
 import Range from './Range';
+import StyleWithMediaQuery from './StyleWithMediaQuery';
 
 const logger = new Logger('MatchMedia');
 
@@ -18,6 +19,8 @@ export default class MatchMedia {
             new Range('lg', this._breakpointMatch, '992px', '1199px'),
             new Range('xl', this._breakpointMatch, '1200px', null)
         ];
+
+        this._styles = [];
     }
 
     listenBreakpoint(f) {
@@ -36,10 +39,44 @@ export default class MatchMedia {
         )
     }
 
-    attach(style) {
+    attach(style, notifier) {
+        if (!style) {
+            logger.warn('no style to attach');
+            return;
+        }
+
+        if (!notifier) { // default notifier logs new_style
+            notifier = (new_style) => {
+                logger.debug('style modified', new_style);
+            }
+        }
+
+        const swmqs = [];
+        if (JS.hasProps(style, '@media.*')) {
+            const swmq = new StyleWithMediaQuery(style, notifier);
+            swmqs.push(swmq);
+        }
+
+        JS.traverseProps(style, (path, key, val) => {
+            if (JS.hasProps(val, '@media.*')) {
+                const swmq = new StyleWithMediaQuery(val, (new_style) => {
+                    notifier(style); // notify with root style.
+                });
+                swmqs.push(swmq);
+            }
+        });
+
+        this._styles.push({
+            style: style,
+            swmqs: swmqs
+        });
     }
 
     detach(style) {
+        const found = this._styles.filter(entry => entry.style === style);
+        if (found.length > 0) {
+            found[0].swmqs.forEach(swmq => swmq.unlisten());
+        }
     }
 
     _breakpointMatch(match, vw) {
