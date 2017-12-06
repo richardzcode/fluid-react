@@ -1,6 +1,6 @@
 # fluid-react
 
-Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layout/grid/). A mobile-first grid system for React.
+React inline-Style solution for frontend development. CSS free.
 
 * [Install](#install)
 * [CSS](#css)
@@ -67,6 +67,8 @@ npm install --save fluid-react
 ```
 
 ## Grid
+
+Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layout/grid/). A mobile-first grid system for React.
 
 ```
     <Container>
