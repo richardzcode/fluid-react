@@ -29,7 +29,7 @@ export function withMediaQuery(Comp) {
         }
 
         render() {
-            const { style } = this.state;
+            const style = this.state.style || {};
             const p = JS.lessProps(this.props, 'style');
             const styl = JS.lessProps(style, '@media.*');
             return <Comp {...p} style={styl} />

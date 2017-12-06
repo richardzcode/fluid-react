@@ -4,6 +4,8 @@ Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layo
 
 * [Install](#install)
 * [CSS](#css)
+  - [MediaQuery](#mediaquery)
+  - [Pseudo Element](#pseudo-element)
 * [Grid](#grid)
 
 More on [Demo](https://richardzcode.github.io/fluid-react-demo/index.html)
@@ -18,7 +20,7 @@ npm install --save fluid-react
 
 ## CSS
 
-MediaQuery
+### MediaQuery
 
 ```
     const style = {
@@ -42,6 +44,23 @@ MediaQuery
         '@media (min-width: 1200px)': {
             backgroundColor: '#d9534f',
             borderColor: '#d9534f'
+        }
+    }
+```
+
+### Pseudo Element
+```
+    const brandStyle = {
+        fontSize: '24px',
+        verticalAlign: 'top',
+        padding: '4px',
+        '::before': {
+            content: '',
+            display: 'inline-block',
+            width: '64px',
+            height: '32px',
+            backgroundImage: 'url(https://reactjs.org/logo-og.png)',
+            backgroundSize: '64px 32px'
         }
     }
 ```
