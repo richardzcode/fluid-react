@@ -7,6 +7,7 @@ Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layo
   - [MediaQuery](#mediaquery)
   - [Pseudo Element](#pseudo-element)
 * [Grid](#grid)
+* [Example](#example)
 
 More on [Demo](https://richardzcode.github.io/fluid-react-demo/index.html)
 
@@ -87,3 +88,14 @@ npm install --save fluid-react
 ```
 
 <img src="media/fluid_react.png" width="360px" />
+
+## Example
+
+```
+git clone https://github.com/richardzcode/fluid-react.git
+cd fluid-react/example
+npm install
+npm start
+```
+
+Example on [Live](https://richardzcode.github.io/fluid-react-demo/index.html)
