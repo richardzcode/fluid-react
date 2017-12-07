@@ -33,6 +33,12 @@ const CssDemoStyle = {
             backgroundImage: 'url(https://reactjs.org/logo-og.png)',
             backgroundSize: '64px 32px'
         }
+    },
+    breakpointBlock: {
+        backgroundColor: '#5bc0de',
+        borderColor: '#5bc0de',
+        color: '#fff',
+        padding: '1rem'
     }
 }
 

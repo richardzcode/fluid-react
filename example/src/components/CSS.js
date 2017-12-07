@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import { MediaQuery, withMediaQuery, withPseudo } from 'fluid-react';
+import { MediaQuery, withMediaQuery, withPseudo, Breakpoint } from 'fluid-react';
 import { Row, Col } from './Grid';
+import { CssDemoStyle } from '../theme';
 
 const Panel = (props) => (
     <div {...props} />
@@ -78,3 +79,11 @@ const BrandName = (props) => (
 )
 
 export const Brand = withPseudo(BrandName);
+
+export const BreakpointBlocks = (props) => (
+    <div>
+        <Breakpoint style={CssDemoStyle.breakpointBlock} show="xs,sm">xs, sm</Breakpoint>
+        <Breakpoint style={CssDemoStyle.breakpointBlock} show="md,lg">md,lg</Breakpoint>
+        <Breakpoint style={CssDemoStyle.breakpointBlock} show="xl">xl</Breakpoint>
+    </div>
+)

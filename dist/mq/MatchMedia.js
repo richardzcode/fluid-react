@@ -8,6 +8,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _fsts = require('fsts');
 
+var _Query = require('./Query');
+
+var _Query2 = _interopRequireDefault(_Query);
+
 var _Range = require('./Range');
 
 var _Range2 = _interopRequireDefault(_Range);
@@ -34,6 +38,7 @@ var MatchMedia = function () {
 
         this._breakpointListeners = [];
         this._ranges = [new _Range2.default('xs', this._breakpointMatch, null, '575px'), new _Range2.default('sm', this._breakpointMatch, '576px', '767px'), new _Range2.default('md', this._breakpointMatch, '768px', '991px'), new _Range2.default('lg', this._breakpointMatch, '992px', '1199px'), new _Range2.default('xl', this._breakpointMatch, '1200px', null)];
+        this._queries = {};
 
         this._styles = [];
     }
@@ -48,6 +53,11 @@ var MatchMedia = function () {
                 logger.debug('breakpoint listener already exists', f);
                 return;
             }
+        }
+    }, {
+        key: 'addQuery',
+        value: function addQuery(name, query) {
+            new _Query2.default(name, this._breakpointMatch, query);
         }
     }, {
         key: 'unlistenBreakpoint',
@@ -105,10 +115,10 @@ var MatchMedia = function () {
         }
     }, {
         key: '_breakpointMatch',
-        value: function _breakpointMatch(match, vw) {
+        value: function _breakpointMatch(match, name) {
             if (match.matches) {
                 // in vw
-                this._onBreakpoint(vw);
+                this._onBreakpoint(name);
             } else {
                 // out vw
             }

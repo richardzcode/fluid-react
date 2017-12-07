@@ -5,6 +5,7 @@ React inline-Style solution for frontend development. CSS free.
 * [Install](#install)
 * [CSS](#css)
   - [MediaQuery](#mediaquery)
+  - [Breakpoint](#breakpoint)
   - [Pseudo Element](#pseudo-element)
 * [Grid](#grid)
 * [Example](#example)
@@ -47,6 +48,17 @@ npm install --save fluid-react
             borderColor: '#d9534f'
         }
     }
+```
+
+### Breakpoint
+```
+    export const BreakpointBlocks = (props) => (
+        <div>
+            <Breakpoint show="xs,sm">xs, sm</Breakpoint>
+            <Breakpoint show="md,lg">md,lg</Breakpoint>
+            <Breakpoint show="xl">xl</Breakpoint>
+        </div>
+    )
 ```
 
 ### Pseudo Element

@@ -1,5 +1,6 @@
 import { Logger, JS, Device } from 'fsts';
 
+import Query from './Query';
 import Range from './Range';
 import MediaQueryAtom from './MediaQueryAtom';
 
@@ -19,6 +20,7 @@ export default class MatchMedia {
             new Range('lg', this._breakpointMatch, '992px', '1199px'),
             new Range('xl', this._breakpointMatch, '1200px', null)
         ];
+        this._queries = {};
 
         this._styles = [];
     }
@@ -31,6 +33,10 @@ export default class MatchMedia {
             logger.debug('breakpoint listener already exists', f);
             return;
         }
+    }
+
+    addQuery(name, query) {
+        new Query(name, this._breakpointMatch, query);
     }
 
     unlistenBreakpoint(f) {
@@ -79,10 +85,10 @@ export default class MatchMedia {
         }
     }
 
-    _breakpointMatch(match, vw) {
+    _breakpointMatch(match, name) {
         if (match.matches) {
             // in vw
-            this._onBreakpoint(vw);
+            this._onBreakpoint(name);
         } else {
             // out vw
         }

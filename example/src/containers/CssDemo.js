@@ -7,13 +7,15 @@ import {
 
     ResponsiveColor,
     MobileDesktop,
-    Brand
+    Brand,
+    BreakpointBlocks
 } from '../components';
 
 import {
     ResponsiveColorCode,
     MobileDesktopCode,
-    BrandCode
+    BrandCode,
+    BreakpointBlocksCode
 } from './CssDemoCode';
 
 class CssDemo extends Component {
@@ -31,6 +33,10 @@ class CssDemo extends Component {
                 <H3>Breakpoint</H3>
                 <MobileDesktop />
                 {MobileDesktopCode}
+
+                <H3>Breakpoint Blocks</H3>
+                <BreakpointBlocks />
+                {BreakpointBlocksCode}
 
                 <H3>Pseudo</H3>
                 <Brand style={CssDemoStyle.brand}>

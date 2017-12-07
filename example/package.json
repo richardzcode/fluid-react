@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "fluid-react": "0.0.11",
+    "fluid-react": "file:..",
     "fsts": "0.0.23",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

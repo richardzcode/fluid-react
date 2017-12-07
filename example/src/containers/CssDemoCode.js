@@ -103,3 +103,13 @@ export const BrandCode = codeSnippet(`
         }
     }
 `)
+
+export const BreakpointBlocksCode = codeSnippet(`
+    export const BreakpointBlocks = (props) => (
+        <div>
+            <Breakpoint show="xs,sm">xs, sm</Breakpoint>
+            <Breakpoint show="md,lg">md,lg</Breakpoint>
+            <Breakpoint show="xl">xl</Breakpoint>
+        </div>
+    )
+`)
