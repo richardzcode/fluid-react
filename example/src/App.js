@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import {
     Navbar,
@@ -20,6 +19,9 @@ import {
     PseudoSection
 } from './containers';
 
+const repo = 'https://github.com/richardzcode/fluid-react';
+const stylejs = repo + '/blob/master/example/src/theme/Bootstrap.js';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,9 +32,11 @@ class App extends Component {
   }
 
   openSourceCode() {
+    window.location.href = stylejs;
   }
 
   openGitHub() {
+    window.location.href = repo;
   }
 
   render() {

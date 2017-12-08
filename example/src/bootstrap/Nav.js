@@ -54,7 +54,10 @@ class _NavSidebar extends Component {
         const { collapsed } = this.state;
         return (
             <div {...this.props}>
-                <div style={{ textAlign: 'right' }}><Icon name="bars" /></div>
+                <div
+                    style={{ textAlign: 'right' }}
+                    onClick={() => this.setState({ collapsed: !this.state.collapsed })}
+                ><Icon name="bars" /></div>
                 {collapsed? null : <NavNav>{this.props.children}</NavNav> }
             </div>
         )

@@ -28,14 +28,16 @@ const Bootstrap = {
         overflow: 'hidden'
     },
     navRight: {
-        display: 'none',
+        display: 'flex',
         maxWidth: '100%',
         height: '2.5rem',
         marginTop: '0.25rem',
         overflow: 'hidden',
         marginLeft: 'auto',
-        '@media (min-width: 768px)': {
-            display: 'flex'
+        '@media (max-width: 767px)': {
+            position: 'absolute',
+            top: '.25rem',
+            right: 0
         }
     },
     navNav: {

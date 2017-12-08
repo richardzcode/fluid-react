@@ -10,7 +10,7 @@ React inline-Style solution for frontend development. CSS free.
 * [Grid](#grid)
 * [Example](#example)
 
-More on [Demo](https://richardzcode.github.io/fluid-react-demo/index.html)
+More on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
 
 ## Install
 
@@ -112,4 +112,4 @@ npm install
 npm start
 ```
 
-Example on [Live](https://richardzcode.github.io/fluid-react-demo/index.html)
+Example on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
