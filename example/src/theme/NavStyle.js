@@ -1,4 +1,4 @@
-const AppStyle = {
+const NavStyle = {
     navBar: {
         textAlign: 'center',
         margin: '1rem 0'
@@ -19,4 +19,4 @@ const AppStyle = {
     }
 }
 
-export default AppStyle;
+export default NavStyle;

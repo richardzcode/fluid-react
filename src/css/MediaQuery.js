@@ -4,32 +4,27 @@ import { JS } from 'fsts';
 
 import MediaQuery from '../mq';
 
-export function withMediaQuery(Comp) {
+export function withMediaQuery(Comp, style) {
     return class extends Component {
         constructor(props) {
             super(props);
 
-            this.state = { style: props.style };
+            this._style = Object.assign({}, style, props.style);
+            this.state = { style: this._style };
         }
 
         componentDidMount() {
-            const { style } = this.props;
-            if (!style) { return; }
-
-            MediaQuery.attach(style, (new_style) => {
+            MediaQuery.attach(this._style, (new_style) => {
                 this.setState({ style: new_style });
             });
         }
 
         componentWillUnmount() {
-            const { style } = this.props;
-            if (!style) { return; }
-
-            MediaQuery.detach(style);
+            MediaQuery.detach(this._style);
         }
 
         render() {
-            const style = this.state.style || {};
+            const { style } = this.state;
             const p = JS.lessProps(this.props, 'style');
             const styl = JS.lessProps(style, '@media.*');
             return <Comp {...p} style={styl} />

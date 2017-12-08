@@ -1,6 +1,18 @@
 const AppStyle = {
     app: {
-        textAlign: 'center'
+        fontFamily: `-apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    "Helvetica Neue",
+                    Arial,
+                    sans-serif,
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol"
+        `,
+        textAlign: 'center',
+        lineHeight: '1.5rem'
     },
     logo: {
         animation: 'App-logo-spin infinite 20s linear',

@@ -28,7 +28,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function withMediaQuery(Comp) {
+function withMediaQuery(Comp, style) {
     return function (_Component) {
         _inherits(_class, _Component);
 
@@ -37,7 +37,8 @@ function withMediaQuery(Comp) {
 
             var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
 
-            _this.state = { style: props.style };
+            _this._style = Object.assign({}, style, props.style);
+            _this.state = { style: _this._style };
             return _this;
         }
 
@@ -46,31 +47,20 @@ function withMediaQuery(Comp) {
             value: function componentDidMount() {
                 var _this2 = this;
 
-                var style = this.props.style;
-
-                if (!style) {
-                    return;
-                }
-
-                _mq2.default.attach(style, function (new_style) {
+                _mq2.default.attach(this._style, function (new_style) {
                     _this2.setState({ style: new_style });
                 });
             }
         }, {
             key: 'componentWillUnmount',
             value: function componentWillUnmount() {
-                var style = this.props.style;
-
-                if (!style) {
-                    return;
-                }
-
-                _mq2.default.detach(style);
+                _mq2.default.detach(this._style);
             }
         }, {
             key: 'render',
             value: function render() {
-                var style = this.state.style || {};
+                var style = this.state.style;
+
                 var p = _fsts.JS.lessProps(this.props, 'style');
                 var styl = _fsts.JS.lessProps(style, '@media.*');
                 return _react2.default.createElement(Comp, _extends({}, p, { style: styl }));
