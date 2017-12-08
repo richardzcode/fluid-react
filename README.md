@@ -12,6 +12,8 @@ React inline-Style solution for frontend development. CSS free.
 
 More on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
 
+<img src="media/fluid_react.png" width="360px" />
+
 ## Install
 
 No CSS file needed.
@@ -100,8 +102,6 @@ Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layo
         </Row>
     </Container>
 ```
-
-<img src="media/fluid_react.png" width="360px" />
 
 ## Example
 
