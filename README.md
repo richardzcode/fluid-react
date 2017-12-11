@@ -4,6 +4,7 @@ React inline-Style solution for frontend development. CSS free.
 
 * [Install](#install)
 * [Example](#example)
+* [Documentation](#documentation)
 * [CSS](#css)
   - [MediaQuery](#mediaquery)
   - [Breakpoint](#breakpoint)
@@ -16,10 +17,10 @@ React inline-Style solution for frontend development. CSS free.
 
 Of course I am biased, to me this is the simplest to use library in this category.
 
-Mobile vs Desktop
+**Mobile vs Desktop**
 
 ```
-> npm install fluid-react
+> npm install --save fluid-react
 ```
 
 then
@@ -40,6 +41,8 @@ export default class App extends Component {
     }
 }
 ```
+
+## Documentation
 
 Documentation is on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
 
