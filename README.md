@@ -1,6 +1,8 @@
 # fluid-react
 
-React inline-Style solution for frontend development. CSS free.
+React inline-style solution for frontend development. CSS free.
+
+Why Javascript styling instead of CSS? Check out this [video](https://youtu.be/ERB1TJBn32c)
 
 * [Install](#install)
 * [Example](#example)
@@ -12,6 +14,14 @@ React inline-Style solution for frontend development. CSS free.
 * [Grid](#grid)
 
 <img src="media/fluid_react.png" width="360px" />
+
+## Install
+
+No CSS file needed.
+
+```
+npm install --save fluid-react
+```
 
 ## Example
 
@@ -52,14 +62,6 @@ git clone https://github.com/richardzcode/fluid-react.git
 cd fluid-react/example
 npm install
 npm start
-```
-
-## Install
-
-No CSS file needed.
-
-```
-npm install --save fluid-react
 ```
 
 ## CSS
