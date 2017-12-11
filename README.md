@@ -3,16 +3,53 @@
 React inline-Style solution for frontend development. CSS free.
 
 * [Install](#install)
+* [Example](#example)
 * [CSS](#css)
   - [MediaQuery](#mediaquery)
   - [Breakpoint](#breakpoint)
   - [Pseudo Element](#pseudo-element)
 * [Grid](#grid)
-* [Example](#example)
-
-More on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
 
 <img src="media/fluid_react.png" width="360px" />
+
+## Example
+
+Of course I am biased, to me this is the simplest to use library in this category.
+
+Mobile vs Desktop
+
+```
+> npm install fluid-react
+```
+
+then
+```
+import React, { Component } from 'react';
+import { Container, Row, Col } from 'fluid-react';
+
+export default class App extends Component {
+    render() {
+        return (
+            <Container>
+                <Row>
+                    <Col xs="12" md="3">Sidebar</Col>
+                    <Col xs="12" md="9">Main Section</Col>
+                </Row>
+            </Container>
+        )
+    }
+}
+```
+
+Documentation is on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
+
+To run documentation/demo in local:
+```
+git clone https://github.com/richardzcode/fluid-react.git
+cd fluid-react/example
+npm install
+npm start
+```
 
 ## Install
 
@@ -102,14 +139,3 @@ Base on [Bootstrap 12 column grid system](https://v4-alpha.getbootstrap.com/layo
         </Row>
     </Container>
 ```
-
-## Example
-
-```
-git clone https://github.com/richardzcode/fluid-react.git
-cd fluid-react/example
-npm install
-npm start
-```
-
-Example on [Live Demo](https://richardzcode.github.io/fluid-react/index.html)
