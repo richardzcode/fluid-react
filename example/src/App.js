@@ -48,18 +48,22 @@ class App extends Component {
             <NavBrand>F-R</NavBrand>
             <NavScroll><NavNav>
                 <NavItem
+                    key="grid"
                     active={active === 'grid'}
                     onClick={() => this.setState({ active: 'grid' })}
                 >Grid</NavItem>
                 <NavItem
+                    key="mq"
                     active={active === 'mq'}
                     onClick={() => this.setState({ active: 'mq' })}
                 >Media Query</NavItem>
                 <NavItem
+                    key="breakpoint"
                     active={active === 'breakpoint'}
                     onClick={() => this.setState({ active: 'breakpoint' })}
                 >Breakpoint</NavItem>
                 <NavItem
+                    key="pseudo"
                     active={active === 'pseudo'}
                     onClick={() => this.setState({ active: 'pseudo' })}
                 >Pseudo</NavItem>

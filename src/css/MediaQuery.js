@@ -9,18 +9,32 @@ export function withMediaQuery(Comp) {
         constructor(props) {
             super(props);
 
-            this._style = Object.assign({}, props.style);
-            this.state = { style: this._style };
+            this.state = { style: props.style || {} };
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+            if (this.props.style !== prevProps.style) {
+                this.attachStyle();
+            }
         }
 
         componentDidMount() {
-            MediaQuery.attach(this._style, (new_style) => {
-                this.setState({ style: new_style });
-            });
+            this.attachStyle();
         }
 
         componentWillUnmount() {
             MediaQuery.detach(this._style);
+        }
+
+        attachStyle() {
+            if (this._style) { MediaQuery.detach(this._style); }
+
+            this._style = Object.assign({}, this.props.style);
+            this.setState({ style: this._style });
+
+            MediaQuery.attach(this._style, (new_style) => {
+                this.setState({ style: new_style });
+            });
         }
 
         render() {

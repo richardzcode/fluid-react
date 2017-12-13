@@ -37,24 +37,42 @@ function withMediaQuery(Comp) {
 
             var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
 
-            _this._style = Object.assign({}, props.style);
-            _this.state = { style: _this._style };
+            _this.state = { style: props.style || {} };
             return _this;
         }
 
         _createClass(_class, [{
+            key: 'componentDidUpdate',
+            value: function componentDidUpdate(prevProps, prevState) {
+                if (this.props.style !== prevProps.style) {
+                    this.attachStyle();
+                }
+            }
+        }, {
             key: 'componentDidMount',
             value: function componentDidMount() {
-                var _this2 = this;
-
-                _mq2.default.attach(this._style, function (new_style) {
-                    _this2.setState({ style: new_style });
-                });
+                this.attachStyle();
             }
         }, {
             key: 'componentWillUnmount',
             value: function componentWillUnmount() {
                 _mq2.default.detach(this._style);
+            }
+        }, {
+            key: 'attachStyle',
+            value: function attachStyle() {
+                var _this2 = this;
+
+                if (this._style) {
+                    _mq2.default.detach(this._style);
+                }
+
+                this._style = Object.assign({}, this.props.style);
+                this.setState({ style: this._style });
+
+                _mq2.default.attach(this._style, function (new_style) {
+                    _this2.setState({ style: new_style });
+                });
             }
         }, {
             key: 'render',

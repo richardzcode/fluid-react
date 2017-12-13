@@ -25,7 +25,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0"
   },
   "dependencies": {
     "fsts": "0.0.24"
