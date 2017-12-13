@@ -2,37 +2,14 @@ import React, { Component } from 'react';
 
 import { Container, Row, Col } from 'fluid-react';
 
-import {
-    Section,
-    NavSidebar,
-    NavSidebarNav,
-    NavSidebarItem
-} from '../bootstrap';
+import { Section } from '../bootstrap';
+
+import Sidebar from './Sidebar';
 
 import {
     Listener,
     BreakpointEl
 } from '../components/breakpoint';
-
-const Sidebar = (props) => {
-    const { activate } = props;
-    const items = [
-        { name: 'breakpoint', title: 'Breakpoint' },
-        { name: 'listener', title: 'Listener' }
-    ].map(item => (
-        <NavSidebarItem
-            key={item.name}
-            onClick={() => activate(item.name)}
-        >{item.title}</NavSidebarItem>
-    ));
-    return (
-        <NavSidebar>
-            <NavSidebarNav>
-                {items}
-            </NavSidebarNav>
-        </NavSidebar>
-    )
-}
 
 export default class BreakpointSection extends Component {
     constructor(props) {
@@ -51,6 +28,10 @@ export default class BreakpointSection extends Component {
 
     render() {
         const { active } = this.state;
+        const items = [
+            { name: 'breakpoint', title: 'Breakpoint' },
+            { name: 'listener', title: 'Listener' }
+        ];
         return (
             <Section>
                 <Container>
@@ -58,6 +39,7 @@ export default class BreakpointSection extends Component {
                         <Col xs="12" md="3">
                             <Sidebar
                                 activate={this.activate}
+                                items={items}
                             />
                         </Col>
                         <Col xs="12" md="9">

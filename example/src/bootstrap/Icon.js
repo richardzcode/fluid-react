@@ -9,10 +9,10 @@ class _Icon extends Component {
     render() {
         const { name } = this.props;
         return (
-            <FontAwesome name={name} {...this.props} />
+            <FontAwesome name={name} {...this.props} style={Bootstrap.icon} />
         )
     }
 }
-const Icon = withMediaQuery(_Icon, Bootstrap.icon);
+const Icon = withMediaQuery(_Icon);
 
 export { Icon };

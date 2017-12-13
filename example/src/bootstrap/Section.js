@@ -1,26 +1,49 @@
 import React from 'react';
 
-import { withMediaQuery } from 'fluid-react';
+import { Div, Pre } from 'fluid-react';
+import { JS } from 'fsts';
 
 import { Bootstrap } from '../theme';
 
-const _Section = (props) => (
-    <div {...props}>{props.children}</div>
+const Section = (props) => (
+    <Div {...props} style={Bootstrap.section}>{props.children}</Div>
 )
-const Section = withMediaQuery(_Section, Bootstrap.section);
 
-const _Panel = (props) => (
-    <div {...props}>{props.children}</div>
+const Panel = (props) => (
+    <Div {...props} style={Bootstrap.panel}>{props.children}</Div>
 )
-const Panel = withMediaQuery(_Panel, Bootstrap.panel);
 
-const _Block = (props) => (
-    <div {...props}>{props.children}</div>
+const Block = (props) => (
+    <Div {...props} style={Bootstrap.block}>{props.children}</Div>
 )
-const Block = withMediaQuery(_Block, Bootstrap.block);
+
+const Code = (props) => {
+    const { source } = props;
+    const p = JS.lessProps(props, 'source');
+    return (
+        <Pre {...p} style={Bootstrap.code}>{source}</Pre>
+    )
+}
+
+const H1 = (props) => (
+    <Div {...props} style={Bootstrap.h1}>{props.children}</Div>
+)
+
+const H2 = (props) => (
+    <Div {...props} style={Bootstrap.h2}>{props.children}</Div>
+)
+
+const H3 = (props) => (
+    <Div {...props} style={Bootstrap.h3}>{props.children}</Div>
+)
 
 export {
     Section,
     Panel,
-    Block
+    Block,
+    Code,
+
+    H1,
+    H2,
+    H3
 };

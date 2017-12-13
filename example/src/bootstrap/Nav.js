@@ -1,47 +1,46 @@
 import React, { Component } from 'react';
 
-import { withMediaQuery } from 'fluid-react';
+import { Div, Ul, Li } from 'fluid-react';
 import { JS } from 'fsts';
 
 import { Bootstrap } from '../theme';
 import { Icon } from './Icon';
 
-const _Navbar = (props) => (
-    <div {...props}>{props.children}</div>
-)
-const Navbar = withMediaQuery(_Navbar, Bootstrap.navbar);
+const Navbar = (props) => {
+    return <Div {...props} style={Bootstrap.navbar}>{props.children}</Div>
+}
 
-const _NavBrand = (props) => (
-    <div {...props}>{props.children}</div>
+const NavBrand = (props) => (
+    <Div {...props} style={Bootstrap.navBrand}>{props.children}</Div>
 )
-const NavBrand = withMediaQuery(_NavBrand, Bootstrap.navBrand);
 
-const _NavScroll = (props) => (
-    <div {...props}>{props.children}</div>
+const NavScroll = (props) => (
+    <Div {...props} style={Bootstrap.navScroll}>{props.children}</Div>
 )
-const NavScroll = withMediaQuery(_NavScroll, Bootstrap.navScroll);
 
-const _NavRight = (props) => (
-    <div {...props}>{props.children}</div>
+const NavRight = (props) => (
+    <Div {...props} style={Bootstrap.navRight}>{props.children}</Div>
 )
-const NavRight = withMediaQuery(_NavRight, Bootstrap.navRight);
 
-const _NavNav = (props) => (
-    <ul {...props}>{props.children}</ul>
-)
-const NavNav = withMediaQuery(_NavNav, Bootstrap.navNav);
+const NavNav = (props) => {
+    return <Ul {...props} style={Bootstrap.navNav}>{props.children}</Ul>
+}
 
-class _NavItem extends Component {
+class NavItem extends Component {
     render() {
         const { style, active } = this.props;
-        const styl = active? Object.assign({}, style, Bootstrap.navItemActive) : style;
+        const styl = Object.assign(
+            {},
+            Bootstrap.navItem,
+            style,
+            active? Bootstrap.navItem['.active'] : null
+        );
         const p = JS.lessProps(this.props, ['style', 'active']);
-        return <li {...p} style={styl}>{this.props.children}</li>
+        return <Li {...p} style={styl}>{this.props.children}</Li>
     }
 }
-const NavItem = withMediaQuery(_NavItem, Bootstrap.navItem);
 
-class _NavSidebar extends Component {
+class NavSidebar extends Component {
     constructor(props) {
         super(props);
 
@@ -53,7 +52,7 @@ class _NavSidebar extends Component {
     render() {
         const { collapsed } = this.state;
         return (
-            <div {...this.props}>
+            <div {...this.props} style={Bootstrap.navSidebar}>
                 <div
                     style={{ textAlign: 'right' }}
                     onClick={() => this.setState({ collapsed: !this.state.collapsed })}
@@ -63,22 +62,24 @@ class _NavSidebar extends Component {
         )
     }
 }
-const NavSidebar = withMediaQuery(_NavSidebar, Bootstrap.navSidebar);
 
-const _NavSidebarNav = (props) => (
-    <ul {...props}>{props.children}</ul>
+const NavSidebarNav = (props) => (
+    <Ul {...props} style={Bootstrap.navSidebarNav}>{props.children}</Ul>
 )
-const NavSidebarNav = withMediaQuery(_NavSidebarNav, Bootstrap.navSidebarNav);
 
-class _NavSidebarItem extends Component {
+class NavSidebarItem extends Component {
     render() {
         const { style, active } = this.props;
-        const styl = active? Object.assign({}, style, Bootstrap.navSidebarItemActive) : style;
+        const styl = Object.assign(
+            {},
+            Bootstrap.navSidebarItem,
+            style,
+            active? Bootstrap.navSidebarItem['.active'] : null
+        )
         const p = JS.lessProps(this.props, 'style');
-        return <li {...p} style={styl}>{this.props.children}</li>
+        return <Li {...p} style={styl}>{this.props.children}</Li>
     }
 }
-const NavSidebarItem = withMediaQuery(_NavSidebarItem, Bootstrap.navSidebarItem);
 
 export {
     Navbar,

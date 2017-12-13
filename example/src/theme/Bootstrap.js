@@ -1,3 +1,18 @@
+const H = {
+    fontWeight: '500',
+    textAlign: 'left',
+    marginBottom: '0.5rem'
+};
+const H1 = Object.assign({}, H, {
+    fontSize: '2.5rem'
+});
+const H2 = Object.assign({}, H, {
+    fontSize: '2rem'
+});
+const H3 = Object.assign({}, H, {
+    fontSize: '1.5rem'
+});
+
 const Bootstrap = {
     navbar: {
         backgroundColor: '#563d7c',
@@ -52,10 +67,10 @@ const Bootstrap = {
     navItem: {
         padding: '0 0.5rem',
         cursor: 'pointer',
-        whiteSpace: 'nowrap'
-    },
-    navItemActive: {
-        color: '#eee'
+        whiteSpace: 'nowrap',
+        '.active': {
+            color: '#eee'
+        }
     },
     navSidebar: {
         textAlign: 'left',
@@ -75,14 +90,14 @@ const Bootstrap = {
     },
     navSidebarItem: {
         padding: '0 0.5rem',
+        cursor: 'pointer',
+        whiteSpace: 'nowrap',
         color: 'rgba(0,0,0,.65)',
         lineHeight: '2rem',
-        cursor: 'pointer',
-        whiteSpace: 'nowrap'
-    },
-    navSidebarItemActive: {
-        color: '#000',
-        fontWeight: '500'
+        '.active': {
+            color: '#000',
+            fontWeight: '500'
+        }
     },
 
     icon: {
@@ -112,24 +127,9 @@ const Bootstrap = {
         overflow: 'auto'
     },
 
-    h1: {
-        fontSize: '2.5rem',
-        fontWeight: '500',
-        textAlign: 'left',
-        marginBottom: '0.5rem'
-    },
-    h2: {
-        fontSize: '2rem',
-        fontWeight: '500',
-        textAlign: 'left',
-        marginBottom: '0.5rem'
-    },
-    h3: {
-        fontSize: '1.5rem',
-        fontWeight: '500',
-        textAlign: 'left',
-        marginBottom: '0.5rem'
-    }
+    h1: H1,
+    h2: H2,
+    h3: H3
 }
 
 export default Bootstrap;

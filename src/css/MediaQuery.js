@@ -4,12 +4,12 @@ import { JS } from 'fsts';
 
 import MediaQuery from '../mq';
 
-export function withMediaQuery(Comp, style) {
+export function withMediaQuery(Comp) {
     return class extends Component {
         constructor(props) {
             super(props);
 
-            this._style = Object.assign({}, style, props.style);
+            this._style = Object.assign({}, props.style);
             this.state = { style: this._style };
         }
 
