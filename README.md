@@ -9,7 +9,7 @@ Why Javascript styling instead of CSS? Check out this [video](https://youtu.be/E
 * [Documentation](#documentation)
 * [CSS](#css)
   - [MediaQuery](#mediaquery)
-  - [Breakpoint](#breakpoint)
+  - [Match](#match)
   - [Pseudo Element](#pseudo-element)
 * [Grid](#grid)
 
@@ -94,13 +94,13 @@ npm start
     }
 ```
 
-### Breakpoint
+### Match
 ```
-    export const BreakpointBlocks = (props) => (
+    export const MatchBlocks = (props) => (
         <div>
-            <Breakpoint show="xs,sm">xs, sm</Breakpoint>
-            <Breakpoint show="md,lg">md,lg</Breakpoint>
-            <Breakpoint show="xl">xl</Breakpoint>
+            <Match show="xs,sm">xs, sm</Match>
+            <Match show="md,lg">md,lg</Match>
+            <Match show="xl">xl</Match>
         </div>
     )
 ```
