@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { JS } from 'fsts';
 
-import MediaQuery from '../mq';
+import MediaQuery from '../media';
 
 export function withMediaQuery(Comp) {
     return class extends Component {

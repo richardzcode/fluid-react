@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Breakpoint = undefined;
+exports.Match = undefined;
 
 var _MediaQuery = require('./MediaQuery');
 
@@ -29,12 +29,12 @@ Object.keys(_Pseudo).forEach(function (key) {
     });
 });
 
-var _Breakpoint = require('./Breakpoint');
+var _Match = require('./Match');
 
-Object.defineProperty(exports, 'Breakpoint', {
+Object.defineProperty(exports, 'Match', {
     enumerable: true,
     get: function get() {
-        return _interopRequireDefault(_Breakpoint).default;
+        return _interopRequireDefault(_Match).default;
     }
 });
 exports.withCss = withCss;

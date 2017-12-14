@@ -15,7 +15,7 @@ import { AppStyle } from './theme';
 import {
     GridSection,
     MediaQuerySection,
-    BreakpointSection,
+    MatchSection,
     PseudoSection
 } from './containers';
 
@@ -58,10 +58,10 @@ class App extends Component {
                     onClick={() => this.setState({ active: 'mq' })}
                 >Media Query</NavItem>
                 <NavItem
-                    key="breakpoint"
-                    active={active === 'breakpoint'}
-                    onClick={() => this.setState({ active: 'breakpoint' })}
-                >Breakpoint</NavItem>
+                    key="match"
+                    active={active === 'match'}
+                    onClick={() => this.setState({ active: 'match' })}
+                >Match</NavItem>
                 <NavItem
                     key="pseudo"
                     active={active === 'pseudo'}
@@ -85,7 +85,7 @@ class App extends Component {
 
         {active === 'grid'? <GridSection /> : null}
         {active === 'mq'? <MediaQuerySection /> : null}
-        {active === 'breakpoint'? <BreakpointSection /> : null}
+        {active === 'match'? <MatchSection /> : null}
         {active === 'pseudo'? <PseudoSection /> : null}
 
       </div>

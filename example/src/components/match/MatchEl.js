@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Breakpoint } from 'fluid-react';
+import { Match } from 'fluid-react';
 
 import {
     Panel,
@@ -10,35 +10,35 @@ import {
 } from '../../bootstrap';
 
 const source = `
-    <Breakpoint show="xs,sm">
+    <Match show="xs,sm">
         <Block style={blockStyle}>xs,sm</Block>
-    </Breakpoint>
-    <Breakpoint show="md,lg">
+    </Match>
+    <Match show="md,lg">
         <Block style={blockStyle}>md,lg</Block>
-    </Breakpoint>
-    <Breakpoint show="xl">
+    </Match>
+    <Match show="xl">
         <Block style={blockStyle}>xl</Block>
-    </Breakpoint>
+    </Match>
 `
 
 const blockStyle = {
     backgroundColor: '#5bc0de',
 }
 
-const BreakpointEl = (props) => (
+const MatchEl = (props) => (
     <Panel>
-        <H3>Breakpoint</H3>
-        <Breakpoint show="xs,sm">
+        <H3>Match</H3>
+        <Match show="xs,sm">
             <Block style={blockStyle}>xs,sm</Block>
-        </Breakpoint>
-        <Breakpoint show="md,lg">
+        </Match>
+        <Match show="md,lg">
             <Block style={blockStyle}>md,lg</Block>
-        </Breakpoint>
-        <Breakpoint show="xl">
+        </Match>
+        <Match show="xl">
             <Block style={blockStyle}>xl</Block>
-        </Breakpoint>
+        </Match>
         <Code source={source} />
     </Panel>
 )
 
-export default BreakpointEl;
+export default MatchEl;

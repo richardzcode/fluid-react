@@ -1,4 +1,4 @@
-import MediaQuery from './mq';
+import MediaQuery from './media';
 
 export { MediaQuery };
 export * from './grid';

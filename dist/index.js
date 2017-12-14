@@ -41,10 +41,10 @@ Object.keys(_css).forEach(function (key) {
   });
 });
 
-var _mq = require('./mq');
+var _media = require('./media');
 
-var _mq2 = _interopRequireDefault(_mq);
+var _media2 = _interopRequireDefault(_media);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.MediaQuery = _mq2.default;
+exports.MediaQuery = _media2.default;

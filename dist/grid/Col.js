@@ -14,9 +14,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _fsts = require('fsts');
 
-var _mq = require('../mq');
+var _media = require('../media');
 
-var _mq2 = _interopRequireDefault(_mq);
+var _media2 = _interopRequireDefault(_media);
 
 var _GridStyle = require('./GridStyle');
 
@@ -93,12 +93,12 @@ var Col = function (_Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            _mq2.default.listenBreakpoint(this.onBreakpoint);
+            _media2.default.listenBreakpoint(this.onBreakpoint);
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            _mq2.default.unlistenBreakpoint(this.onBreakpoint);
+            _media2.default.unlistenBreakpoint(this.onBreakpoint);
         }
     }, {
         key: 'onBreakpoint',

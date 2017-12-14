@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 
-import MediaQuery from '../mq';
+import MediaQuery from '../media';
 
-export default class Breakpoint extends Component {
+export default class Match extends Component {
     constructor(props) {
         super(props);
 
         this.onBreakpoint = this.onBreakpoint.bind(this);
 
-        this.state = {
-            mq: ''
-        }
+        this.state = { mq: '' }
     }
 
     componentDidMount() {

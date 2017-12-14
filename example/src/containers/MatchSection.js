@@ -8,17 +8,17 @@ import Sidebar from './Sidebar';
 
 import {
     Listener,
-    BreakpointEl
-} from '../components/breakpoint';
+    MatchEl
+} from '../components/match';
 
-export default class BreakpointSection extends Component {
+export default class MatchSection extends Component {
     constructor(props) {
         super(props);
 
         this.activate = this.activate.bind(this);
 
         this.state = {
-            active: 'breakpoint'
+            active: 'match'
         }
     }
 
@@ -29,7 +29,7 @@ export default class BreakpointSection extends Component {
     render() {
         const { active } = this.state;
         const items = [
-            { name: 'breakpoint', title: 'Breakpoint' },
+            { name: 'match', title: 'Match' },
             { name: 'listener', title: 'Listener' }
         ];
         return (
@@ -43,7 +43,7 @@ export default class BreakpointSection extends Component {
                             />
                         </Col>
                         <Col xs="12" md="9">
-                            { active === 'breakpoint'? <BreakpointEl /> : null }
+                            { active === 'match'? <MatchEl /> : null }
                             { active === 'listener'? <Listener /> : null }
                         </Col>
                     </Row>

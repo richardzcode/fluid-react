@@ -8,13 +8,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.withMediaQuery = withMediaQuery;
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _fsts = require('fsts');
 
 var _media = require('../media');
 
@@ -28,63 +24,59 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function withMediaQuery(Comp) {
-    return function (_Component) {
-        _inherits(_class, _Component);
+var Match = function (_Component) {
+    _inherits(Match, _Component);
 
-        function _class(props) {
-            _classCallCheck(this, _class);
+    function Match(props) {
+        _classCallCheck(this, Match);
 
-            var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Match.__proto__ || Object.getPrototypeOf(Match)).call(this, props));
 
-            _this.state = { style: props.style || {} };
-            return _this;
+        _this.onBreakpoint = _this.onBreakpoint.bind(_this);
+
+        _this.state = { mq: '' };
+        return _this;
+    }
+
+    _createClass(Match, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _media2.default.listenBreakpoint(this.onBreakpoint);
         }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _media2.default.unlistenBreakpoint(this.onBreakpoint);
+        }
+    }, {
+        key: 'onBreakpoint',
+        value: function onBreakpoint(query_name) {
+            this.setState({
+                mq: query_name
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var show = this.props.show;
+            var mq = this.state.mq;
 
-        _createClass(_class, [{
-            key: 'componentDidUpdate',
-            value: function componentDidUpdate(prevProps, prevState) {
-                if (this.props.style !== prevProps.style) {
-                    this.attachStyle();
-                }
+
+            if (show && show.split(',').filter(function (name) {
+                return name.trim() === mq;
+            }).length == 0) {
+                return null;
             }
-        }, {
-            key: 'componentDidMount',
-            value: function componentDidMount() {
-                this.attachStyle();
-            }
-        }, {
-            key: 'componentWillUnmount',
-            value: function componentWillUnmount() {
-                _media2.default.detach(this._style);
-            }
-        }, {
-            key: 'attachStyle',
-            value: function attachStyle() {
-                var _this2 = this;
 
-                if (this._style) {
-                    _media2.default.detach(this._style);
-                }
+            return _react2.default.createElement(
+                'div',
+                _extends({ className: 'fluid-react-breakpoint' }, this.props),
+                this.props.children
+            );
+        }
+    }]);
 
-                this._style = Object.assign({}, this.props.style);
-                this.setState({ style: this._style });
+    return Match;
+}(_react.Component);
 
-                _media2.default.attach(this._style, function (new_style) {
-                    _this2.setState({ style: new_style });
-                });
-            }
-        }, {
-            key: 'render',
-            value: function render() {
-                var style = this.state.style;
-
-                var p = _fsts.JS.lessProps(this.props, 'style');
-                var styl = _fsts.JS.lessProps(style, '@media.*');
-                return _react2.default.createElement(Comp, _extends({}, p, { style: styl }));
-            }
-        }]);
-
-        return _class;
-    }(_react.Component);
-}
+exports.default = Match;
