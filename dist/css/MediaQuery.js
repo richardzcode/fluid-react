@@ -63,23 +63,29 @@ function withMediaQuery(Comp) {
             value: function attachStyle() {
                 var _this2 = this;
 
+                var hasWindow = _fsts.Device.hasWindow();
+
                 if (this._style) {
                     _media2.default.detach(this._style);
                 }
 
                 this._style = Object.assign({}, this.props.style);
-                this.setState({ style: this._style });
+                if (hasWindow) {
+                    this.setState({ style: this._style });
+                }
 
-                _media2.default.attach(this._style, function (new_style) {
+                return _media2.default.attach(this._style, function (new_style) {
                     _this2.setState({ style: new_style });
                 });
             }
         }, {
             key: 'render',
             value: function render() {
-                var className = this.props.className;
-                var style = this.state.style;
+                var hasWindow = _fsts.Device.hasWindow();
 
+                var className = this.props.className;
+
+                var style = hasWindow ? this.state : this.attachStyle();
                 var cls = [].concat(className || []).concat(style['__fr_class__'] || []);
                 var styl = _fsts.JS.lessProps(style, '@media.*');
                 var p = _fsts.JS.lessProps(this.props, ['style', 'className']);

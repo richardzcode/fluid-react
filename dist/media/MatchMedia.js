@@ -99,6 +99,8 @@ var MatchMedia = function () {
                 style: style,
                 atoms: atoms
             });
+
+            return style;
         }
     }, {
         key: 'detach',

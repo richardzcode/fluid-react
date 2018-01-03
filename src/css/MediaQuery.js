@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { JS } from 'fsts';
+import { JS, Device } from 'fsts';
 
 import MediaQuery from '../media';
 
@@ -27,19 +27,25 @@ export function withMediaQuery(Comp) {
         }
 
         attachStyle() {
+            const hasWindow = Device.hasWindow();
+
             if (this._style) { MediaQuery.detach(this._style); }
 
             this._style = Object.assign({}, this.props.style);
-            this.setState({ style: this._style });
+            if (hasWindow) {
+                this.setState({ style: this._style });
+            }
 
-            MediaQuery.attach(this._style, (new_style) => {
+            return MediaQuery.attach(this._style, (new_style) => {
                 this.setState({ style: new_style });
             });
         }
 
         render() {
+            const hasWindow = Device.hasWindow();
+
             const { className } = this.props;
-            const { style } = this.state;
+            const style = hasWindow? this.state : this.attachStyle();
             const cls = [].concat(className || [])
                 .concat(style['__fr_class__'] || []);
             const styl = JS.lessProps(style, '@media.*');

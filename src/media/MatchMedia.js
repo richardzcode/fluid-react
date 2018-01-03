@@ -77,6 +77,8 @@ export default class MatchMedia {
             style: style,
             atoms: atoms
         });
+
+        return style;
     }
 
     detach(style) {
