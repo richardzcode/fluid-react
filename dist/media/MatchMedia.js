@@ -30,17 +30,16 @@ var MatchMedia = function () {
     function MatchMedia() {
         _classCallCheck(this, MatchMedia);
 
-        if (!_fsts.Device.hasWindow()) {
-            return;
-        }
-
         this._breakpointMatch = this._breakpointMatch.bind(this);
 
         this._breakpointListeners = [];
-        this._ranges = [new _Range2.default('xs', this._breakpointMatch, null, '575px'), new _Range2.default('sm', this._breakpointMatch, '576px', '767px'), new _Range2.default('md', this._breakpointMatch, '768px', '991px'), new _Range2.default('lg', this._breakpointMatch, '992px', '1199px'), new _Range2.default('xl', this._breakpointMatch, '1200px', null)];
+        this._ranges = [];
         this._queries = {};
-
         this._styles = [];
+
+        if (_fsts.Device.hasWindow()) {
+            this._ranges = [new _Range2.default('xs', this._breakpointMatch, null, '575px'), new _Range2.default('sm', this._breakpointMatch, '576px', '767px'), new _Range2.default('md', this._breakpointMatch, '768px', '991px'), new _Range2.default('lg', this._breakpointMatch, '992px', '1199px'), new _Range2.default('xl', this._breakpointMatch, '1200px', null)];
+        }
     }
 
     _createClass(MatchMedia, [{

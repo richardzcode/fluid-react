@@ -38,10 +38,13 @@ export function withMediaQuery(Comp) {
         }
 
         render() {
+            const { className } = this.props;
             const { style } = this.state;
-            const p = JS.lessProps(this.props, 'style');
+            const cls = [].concat(className || [])
+                .concat(style['__fr_class__'] || []);
             const styl = JS.lessProps(style, '@media.*');
-            return <Comp {...p} style={styl} />
+            const p = JS.lessProps(this.props, ['style', 'className']);
+            return <Comp {...p} style={styl} className={cls.join(' ')} />
         }
     }
 }

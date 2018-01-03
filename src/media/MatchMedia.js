@@ -8,21 +8,22 @@ const logger = new Logger('MatchMedia');
 
 export default class MatchMedia {
     constructor() {
-        if (!Device.hasWindow()) { return; }
-
         this._breakpointMatch = this._breakpointMatch.bind(this);
 
         this._breakpointListeners = [];
-        this._ranges = [
-            new Range('xs', this._breakpointMatch, null, '575px'),
-            new Range('sm', this._breakpointMatch, '576px', '767px'),
-            new Range('md', this._breakpointMatch, '768px', '991px'),
-            new Range('lg', this._breakpointMatch, '992px', '1199px'),
-            new Range('xl', this._breakpointMatch, '1200px', null)
-        ];
+        this._ranges = [];
         this._queries = {};
-
         this._styles = [];
+
+        if (Device.hasWindow()) {
+            this._ranges = [
+                new Range('xs', this._breakpointMatch, null, '575px'),
+                new Range('sm', this._breakpointMatch, '576px', '767px'),
+                new Range('md', this._breakpointMatch, '768px', '991px'),
+                new Range('lg', this._breakpointMatch, '992px', '1199px'),
+                new Range('xl', this._breakpointMatch, '1200px', null)
+            ];
+        }
     }
 
     listenBreakpoint(f) {

@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _fsts = require('fsts');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MediaQueryAtom = function () {
@@ -37,8 +39,11 @@ var MediaQueryAtom = function () {
     }, {
         key: '_init',
         value: function _init() {
+            var hasWindow = _fsts.Device.hasWindow();
+
             var that = this;
             var style = this._style;
+            var classNames = [];
             Object.keys(style).forEach(function (key) {
                 if (!key.startsWith('@media')) {
                     return;
@@ -49,22 +54,29 @@ var MediaQueryAtom = function () {
                     return;
                 }
 
-                var matchStyle = style[key];
-                var mql = window.matchMedia(rules);
-                var listener = function listener(match) {
-                    matchStyle._matches = match.matches;
-                    that._applyMatches();
-                };
-                mql.addListener(listener);
+                if (hasWindow) {
+                    var matchStyle = style[key];
+                    var mql = window.matchMedia(rules);
+                    var listener = function listener(match) {
+                        matchStyle._matches = match.matches;
+                        that._applyMatches();
+                    };
+                    mql.addListener(listener);
 
-                matchStyle._matches = mql.matches;
-                that._queries.push({
-                    matchStyle: matchStyle,
-                    mql: mql,
-                    listener: listener
-                });
+                    matchStyle._matches = mql.matches;
+                    that._queries.push({
+                        matchStyle: matchStyle,
+                        mql: mql,
+                        listener: listener
+                    });
+                } else {
+                    classNames.push(rules.replace(/[^a-z0-9]/g, '-'));
+                }
             });
             that._applyMatches();
+            if (classNames.length > 0) {
+                style['__fr_class__'] = classNames;
+            }
         }
     }, {
         key: '_applyMatches',

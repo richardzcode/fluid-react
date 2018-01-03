@@ -77,11 +77,13 @@ function withMediaQuery(Comp) {
         }, {
             key: 'render',
             value: function render() {
+                var className = this.props.className;
                 var style = this.state.style;
 
-                var p = _fsts.JS.lessProps(this.props, 'style');
+                var cls = [].concat(className || []).concat(style['__fr_class__'] || []);
                 var styl = _fsts.JS.lessProps(style, '@media.*');
-                return _react2.default.createElement(Comp, _extends({}, p, { style: styl }));
+                var p = _fsts.JS.lessProps(this.props, ['style', 'className']);
+                return _react2.default.createElement(Comp, _extends({}, p, { style: styl, className: cls.join(' ') }));
             }
         }]);
 
