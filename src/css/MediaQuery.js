@@ -78,7 +78,7 @@ export function withMediaQuery(Comp) {
             const p = JS.lessProps(this.props, 'style');
             return (
                 <span>
-                    <Comp {...p}/>
+                    <Comp {...p} className={cls} />
                     <style dangerouslySetInnerHTML={{__html: css }}></style>
                 </span>
             );

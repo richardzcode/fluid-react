@@ -117,7 +117,7 @@ function withMediaQuery(Comp) {
                 return _react2.default.createElement(
                     'span',
                     null,
-                    _react2.default.createElement(Comp, p),
+                    _react2.default.createElement(Comp, _extends({}, p, { className: cls })),
                     _react2.default.createElement('style', { dangerouslySetInnerHTML: { __html: css } })
                 );
             }
