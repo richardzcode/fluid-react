@@ -1,3 +1,4 @@
+import React from 'react';
 import { JS } from 'fsts';
 
 const queries = {};

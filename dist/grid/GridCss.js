@@ -4,7 +4,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
 var _fsts = require('fsts');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var queries = {};
 
@@ -349,7 +355,7 @@ Object.keys(queries).forEach(function (key) {
 
 console.log(css);
 var style = function style(props) {
-    return React.createElement('style', { dangerouslySetInnerHTML: { __html: css } });
+    return _react2.default.createElement('style', { dangerouslySetInnerHTML: { __html: css } });
 };
 
 exports.default = style;
