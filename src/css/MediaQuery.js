@@ -43,7 +43,7 @@ export function withMediaQuery(Comp) {
             Object.keys(this._style)
                 .filter(key => key.startsWith('@media'))
                 .forEach(key => queries[key] = this._style[key]);
-            if (queries.length > 0) {
+            if (Object.keys(queries).length > 0) {
                 this._style['__fr_class__'] = '__fr_mq_' + JS.cheapId() + '__';
                 this._style['__fr_queries__'] = queries;
             }

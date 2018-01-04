@@ -83,7 +83,7 @@ function withMediaQuery(Comp) {
                 }).forEach(function (key) {
                     return queries[key] = _this2._style[key];
                 });
-                if (queries.length > 0) {
+                if (Object.keys(queries).length > 0) {
                     this._style['__fr_class__'] = '__fr_mq_' + _fsts.JS.cheapId() + '__';
                     this._style['__fr_queries__'] = queries;
                 }
