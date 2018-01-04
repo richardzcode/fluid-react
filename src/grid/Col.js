@@ -32,7 +32,7 @@ export default class Col extends Component {
         for (var i = 0; i < counts.length; i++) {
             const val = counts[i];
             if (val) {
-                for (j = i - 1; j >= 0; j--) { counts[j] = val; }
+                for (var j = i - 1; j >= 0; j--) { counts[j] = val; }
                 break;
             }
         }

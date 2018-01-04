@@ -64,7 +64,7 @@ var Col = function (_Component) {
             for (var i = 0; i < counts.length; i++) {
                 var val = counts[i];
                 if (val) {
-                    for (j = i - 1; j >= 0; j--) {
+                    for (var j = i - 1; j >= 0; j--) {
                         counts[j] = val;
                     }
                     break;
