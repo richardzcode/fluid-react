@@ -49,15 +49,41 @@ var Col = function (_Component) {
     }
 
     _createClass(Col, [{
-        key: 'cellCount',
-        value: function cellCount() {
-            var vw = this.state.vw;
+        key: 'cellCounts',
+        value: function cellCounts() {
             var _props = this.props,
                 xs = _props.xs,
                 sm = _props.sm,
                 md = _props.md,
                 lg = _props.lg,
                 xl = _props.xl;
+
+            var counts = [_fsts.JS.undefinedThen(xs, ''), _fsts.JS.undefinedThen(sm, ''), _fsts.JS.undefinedThen(md, ''), _fsts.JS.undefinedThen(lg, ''), _fsts.JS.undefinedThen(xl, '')];
+
+            // back fill
+            for (var i = 0; i < counts.length; i++) {
+                var val = counts[i];
+                if (val) {
+                    for (j = i - 1; j >= 0; j--) {
+                        counts[j] = val;
+                    }
+                    break;
+                }
+            }
+
+            // forward fill
+            for (var i = 1; i < counts.length; i++) {
+                if (!counts[i]) {
+                    counts[i] = counts[i - 1];
+                }
+            }
+
+            return counts;
+        }
+    }, {
+        key: 'cellCount',
+        value: function cellCount() {
+            var vw = this.state.vw;
 
             var index = {
                 xs: 0,
@@ -66,23 +92,8 @@ var Col = function (_Component) {
                 lg: 3,
                 xl: 4
             }[vw];
-            var counts = [_fsts.JS.undefinedThen(xs, -1), _fsts.JS.undefinedThen(sm, -1), _fsts.JS.undefinedThen(md, -1), _fsts.JS.undefinedThen(lg, -1), _fsts.JS.undefinedThen(xl, -1)];
-
-            if (counts[index] !== -1) {
-                return counts[index];
-            }
-            for (var i = index - 1; i >= 0; i--) {
-                if (counts[i] !== -1) {
-                    return counts[i];
-                }
-            }
-            for (var i = index + 1; i < 5; i++) {
-                if (counts[i] !== -1) {
-                    return counts[i];
-                }
-            }
-
-            return '';
+            var counts = this.cellCounts();
+            return counts[index];
         }
     }, {
         key: 'calcStyle',
@@ -122,27 +133,14 @@ var Col = function (_Component) {
             }
 
             var cls = 'fluid-react-col __fr_grid_col__';
-            var _props2 = this.props,
-                xs = _props2.xs,
-                sm = _props2.sm,
-                md = _props2.md,
-                lg = _props2.lg,
-                xl = _props2.xl;
-
-            if (xs) {
-                cls += ' __fr_grid_xs_' + xs + '__';
-            }
-            if (sm) {
-                cls += ' __fr_grid_sm_' + sm + '__';
-            }
-            if (md) {
-                cls += ' __fr_grid_md_' + md + '__';
-            }
-            if (lg) {
-                cls += ' __fr_grid_lg_' + lg + '__';
-            }
-            if (xl) {
-                cls += ' __fr_grid_xl_' + xl + '__';
+            var counts = this.cellCounts();
+            if (counts[0]) {
+                // cellCounts ensures if there is any number then all should have number
+                cls += ' __fr_grid_xs_' + counts[0] + '__';
+                cls += ' __fr_grid_sm_' + counts[1] + '__';
+                cls += ' __fr_grid_md_' + counts[2] + '__';
+                cls += ' __fr_grid_lg_' + counts[3] + '__';
+                cls += ' __fr_grid_xl_' + counts[4] + '__';
             }
             return _react2.default.createElement(
                 'div',
