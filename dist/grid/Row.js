@@ -18,6 +18,10 @@ var _GridStyle = require('./GridStyle');
 
 var _GridStyle2 = _interopRequireDefault(_GridStyle);
 
+var _GridCss = require('./GridCss');
+
+var _GridCss2 = _interopRequireDefault(_GridCss);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25,6 +29,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GridCssRendered = false;
 
 var Row = function (_Component) {
     _inherits(Row, _Component);
@@ -42,9 +48,20 @@ var Row = function (_Component) {
 
             var styl = Object.assign({}, style, _GridStyle2.default.row);
             var p = _fsts.JS.lessProps(this.props, 'style');
+
+            if (_fsts.Device.hasWindow() || GridCssRendered) {
+                return _react2.default.createElement(
+                    'div',
+                    _extends({ className: 'fluid-react-row', style: styl }, p),
+                    this.props.children
+                );
+            }
+
+            GridCssRendered = true;
             return _react2.default.createElement(
                 'div',
                 _extends({ className: 'fluid-react-row', style: styl }, p),
+                _react2.default.createElement(_GridCss2.default, null),
                 this.props.children
             );
         }

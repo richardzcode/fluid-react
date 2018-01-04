@@ -22,10 +22,6 @@ var _GridStyle = require('./GridStyle');
 
 var _GridStyle2 = _interopRequireDefault(_GridStyle);
 
-var _GridCss = require('./GridCss');
-
-var _GridCss2 = _interopRequireDefault(_GridCss);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35,8 +31,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var logger = new _fsts.Logger('Col');
-
-var GridCssRendered = false;
 
 var Col = function (_Component) {
     _inherits(Col, _Component);
@@ -150,25 +144,11 @@ var Col = function (_Component) {
             if (xl) {
                 cls += ' __fr_grid_xl_' + xl + '__';
             }
-            if (GridCssRendered) {
-                return _react2.default.createElement(
-                    'div',
-                    _extends({ className: cls }, this.props),
-                    this.props.children
-                );
-            } else {
-                GridCssRendered = true;
-                return _react2.default.createElement(
-                    'span',
-                    null,
-                    _react2.default.createElement(_GridCss2.default, null),
-                    _react2.default.createElement(
-                        'div',
-                        _extends({ className: cls }, this.props),
-                        this.props.children
-                    )
-                );
-            }
+            return _react2.default.createElement(
+                'div',
+                _extends({ className: cls }, this.props),
+                this.props.children
+            );
         }
     }]);
 
