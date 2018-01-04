@@ -118,11 +118,11 @@ var Col = function (_Component) {
             if (_fsts.Device.hasWindow()) {
                 var style = this.props.style;
 
-                var _styl = Object.assign({}, style, this.calcStyle());
-                var _p = _fsts.JS.lessProps(this.props, 'style');
+                var styl = Object.assign({}, style, this.calcStyle());
+                var p = _fsts.JS.lessProps(this.props, 'style');
                 return _react2.default.createElement(
                     'div',
-                    _extends({ className: 'fluid-react-col', style: _styl }, _p),
+                    _extends({ className: 'fluid-react-col', style: styl }, p),
                     this.props.children
                 );
             }
@@ -153,7 +153,7 @@ var Col = function (_Component) {
             if (GridCssRendered) {
                 return _react2.default.createElement(
                     'div',
-                    _extends({ className: 'fluid-react-col', style: styl }, p),
+                    _extends({ className: cls }, this.props),
                     this.props.children
                 );
             } else {
@@ -164,7 +164,7 @@ var Col = function (_Component) {
                     _react2.default.createElement(_GridCss2.default, null),
                     _react2.default.createElement(
                         'div',
-                        _extends({ className: 'fluid-react-col', style: styl }, p),
+                        _extends({ className: cls }, this.props),
                         this.props.children
                     )
                 );

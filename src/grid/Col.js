@@ -93,7 +93,7 @@ export default class Col extends Component {
         if (xl) { cls += ' __fr_grid_xl_' + xl + '__'; }
         if (GridCssRendered) {
             return (
-                <div className="fluid-react-col" style={styl} {...p}>
+                <div className={cls} {...this.props}>
                     {this.props.children}
                 </div>
             )
@@ -102,7 +102,7 @@ export default class Col extends Component {
             return (
                 <span>
                     <GridCss />
-                    <div className="fluid-react-col" style={styl} {...p}>
+                    <div className={cls} {...this.props}>
                         {this.props.children}
                     </div>
                 </span>
