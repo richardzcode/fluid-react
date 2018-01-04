@@ -20,38 +20,32 @@ export default class MediaQueryAtom {
     }
 
     _init() {
-        const hasWindow = Device.hasWindow();
+        if (!Device.hasWindow()) { return; }
 
         const that = this;
         const style = this._style;
-        const classNames = [];
         Object.keys(style).forEach(key => {
             if (!key.startsWith('@media')) { return; }
 
             const rules = key.split(/\s+/).slice(1).join(' ');
             if (!rules) { return; }
 
-            if (hasWindow) {
-                const matchStyle = style[key];
-                const mql = window.matchMedia(rules);
-                const listener = (match) => {
-                    matchStyle._matches = match.matches;
-                    that._applyMatches();
-                };
-                mql.addListener(listener);
+            const matchStyle = style[key];
+            const mql = window.matchMedia(rules);
+            const listener = (match) => {
+                matchStyle._matches = match.matches;
+                that._applyMatches();
+            };
+            mql.addListener(listener);
 
-                matchStyle._matches = mql.matches;
-                that._queries.push({
-                    matchStyle: matchStyle,
-                    mql: mql,
-                    listener: listener
-                });
-            } else {
-                classNames.push(rules.replace(/[^a-z0-9]/g, '-'));
-            }
+            matchStyle._matches = mql.matches;
+            that._queries.push({
+                matchStyle: matchStyle,
+                mql: mql,
+                listener: listener
+            });
         });
         that._applyMatches();
-        if (classNames.length > 0) { style['__fr_class__'] = classNames; }
     }
 
     _applyMatches() {

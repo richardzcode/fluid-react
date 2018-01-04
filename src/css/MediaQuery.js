@@ -34,23 +34,54 @@ export function withMediaQuery(Comp) {
             this._style = Object.assign({}, this.props.style);
             if (hasWindow) {
                 this.setState({ style: this._style });
+                return MediaQuery.attach(this._style, (new_style) => {
+                    this.setState({ style: new_style });
+                });
             }
 
-            return MediaQuery.attach(this._style, (new_style) => {
-                this.setState({ style: new_style });
-            });
+            const queries = {};
+            Object.keys(this._style)
+                .filter(key => key.startsWith('@media'))
+                .forEach(key => queries[key] = this._style[key]);
+            if (queries.length > 0) {
+                this._style['__fr_class__'] = '__fr_mq_' + JS.cheapId() + '__';
+                this._style['__fr_queries__'] = queries;
+            }
+            return JS.lessProps(this._style, '@media.*');
         }
 
         render() {
-            const hasWindow = Device.hasWindow();
+            if (Device.hasWindow()) {
+                const style = this.state;
+                const styl = JS.lessProps(style, '@media.*');
+                const p = JS.lessProps(this.props, 'style');
+                return <Comp {...p} style={styl} />
+            }
 
-            const { className } = this.props;
-            const style = hasWindow? this.state : this.attachStyle();
-            const cls = [].concat(className || [])
-                .concat(style['__fr_class__'] || []);
-            const styl = JS.lessProps(style, '@media.*');
-            const p = JS.lessProps(this.props, ['style', 'className']);
-            return <Comp {...p} style={styl} className={cls.join(' ')} />
+            const style = this.attachStyle();
+            if (!style['__fr_class__']) {
+                const p = JS.lessProps(this.props, 'style');
+                return <Comp {...p} style={style} />
+            }
+
+            const cls = style['__fr_class__'];
+            const queries = style['__fr_queries__'];
+            const styl = JS.lessProps(style, '__fr.*');
+            let css = '.' + cls + JS.styleToCss(styl);
+            Object.keys(queries)
+                .forEach(key => {
+                    css += key + '{'
+                        + '.' + cls + JS.styleToCss(queries[key])
+                        + '}';
+                });
+
+            const p = JS.lessProps(this.props, 'style');
+            return (
+                <span>
+                    <Comp {...p}/>
+                    <style dangerouslySetInnerHTML={{__html: css }}></style>
+                </span>
+            );
         }
     }
 }

@@ -39,11 +39,12 @@ var MediaQueryAtom = function () {
     }, {
         key: '_init',
         value: function _init() {
-            var hasWindow = _fsts.Device.hasWindow();
+            if (!_fsts.Device.hasWindow()) {
+                return;
+            }
 
             var that = this;
             var style = this._style;
-            var classNames = [];
             Object.keys(style).forEach(function (key) {
                 if (!key.startsWith('@media')) {
                     return;
@@ -54,29 +55,22 @@ var MediaQueryAtom = function () {
                     return;
                 }
 
-                if (hasWindow) {
-                    var matchStyle = style[key];
-                    var mql = window.matchMedia(rules);
-                    var listener = function listener(match) {
-                        matchStyle._matches = match.matches;
-                        that._applyMatches();
-                    };
-                    mql.addListener(listener);
+                var matchStyle = style[key];
+                var mql = window.matchMedia(rules);
+                var listener = function listener(match) {
+                    matchStyle._matches = match.matches;
+                    that._applyMatches();
+                };
+                mql.addListener(listener);
 
-                    matchStyle._matches = mql.matches;
-                    that._queries.push({
-                        matchStyle: matchStyle,
-                        mql: mql,
-                        listener: listener
-                    });
-                } else {
-                    classNames.push(rules.replace(/[^a-z0-9]/g, '-'));
-                }
+                matchStyle._matches = mql.matches;
+                that._queries.push({
+                    matchStyle: matchStyle,
+                    mql: mql,
+                    listener: listener
+                });
             });
             that._applyMatches();
-            if (classNames.length > 0) {
-                style['__fr_class__'] = classNames;
-            }
         }
     }, {
         key: '_applyMatches',

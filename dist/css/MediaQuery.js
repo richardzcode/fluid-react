@@ -72,24 +72,54 @@ function withMediaQuery(Comp) {
                 this._style = Object.assign({}, this.props.style);
                 if (hasWindow) {
                     this.setState({ style: this._style });
+                    return _media2.default.attach(this._style, function (new_style) {
+                        _this2.setState({ style: new_style });
+                    });
                 }
 
-                return _media2.default.attach(this._style, function (new_style) {
-                    _this2.setState({ style: new_style });
+                var queries = {};
+                Object.keys(this._style).filter(function (key) {
+                    return key.startsWith('@media');
+                }).forEach(function (key) {
+                    return queries[key] = _this2._style[key];
                 });
+                if (queries.length > 0) {
+                    this._style['__fr_class__'] = '__fr_mq_' + _fsts.JS.cheapId() + '__';
+                    this._style['__fr_queries__'] = queries;
+                }
+                return _fsts.JS.lessProps(this._style, '@media.*');
             }
         }, {
             key: 'render',
             value: function render() {
-                var hasWindow = _fsts.Device.hasWindow();
+                if (_fsts.Device.hasWindow()) {
+                    var _style = this.state;
+                    var _styl = _fsts.JS.lessProps(_style, '@media.*');
+                    var _p = _fsts.JS.lessProps(this.props, 'style');
+                    return _react2.default.createElement(Comp, _extends({}, _p, { style: _styl }));
+                }
 
-                var className = this.props.className;
+                var style = this.attachStyle();
+                if (!style['__fr_class__']) {
+                    var _p2 = _fsts.JS.lessProps(this.props, 'style');
+                    return _react2.default.createElement(Comp, _extends({}, _p2, { style: style }));
+                }
 
-                var style = hasWindow ? this.state : this.attachStyle();
-                var cls = [].concat(className || []).concat(style['__fr_class__'] || []);
-                var styl = _fsts.JS.lessProps(style, '@media.*');
-                var p = _fsts.JS.lessProps(this.props, ['style', 'className']);
-                return _react2.default.createElement(Comp, _extends({}, p, { style: styl, className: cls.join(' ') }));
+                var cls = style['__fr_class__'];
+                var queries = style['__fr_queries__'];
+                var styl = _fsts.JS.lessProps(style, '__fr.*');
+                var css = '.' + cls + _fsts.JS.styleToCss(styl);
+                Object.keys(queries).forEach(function (key) {
+                    css += key + '{' + '.' + cls + _fsts.JS.styleToCss(queries[key]) + '}';
+                });
+
+                var p = _fsts.JS.lessProps(this.props, 'style');
+                return _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement(Comp, p),
+                    _react2.default.createElement('style', { dangerouslySetInnerHTML: { __html: css } })
+                );
             }
         }]);
 
