@@ -84,7 +84,7 @@ export default class Col extends Component {
             )
         }
 
-        let cls = 'fluid-react-col';
+        let cls = 'fluid-react-col __fr_grid_col__';
         const { xs, sm, md, lg, xl } = this.props;
         if (xs) { cls += ' __fr_grid_xs_' + xs + '__'; }
         if (sm) { cls += ' __fr_grid_sm_' + sm + '__'; }

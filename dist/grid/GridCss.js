@@ -12,6 +12,14 @@ var _fsts = require('fsts');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var basic = {
+    __fr_grid_col__: {
+        flex: '1 0 0',
+        maxWidth: '100%',
+        boxSizing: 'border-box'
+    }
+};
+
 var queries = {};
 
 queries['@media (max-width: 575px)'] = {
@@ -344,7 +352,9 @@ queries['@media (min-width: 1200px)'] = {
     }
 };
 
-var css = '';
+var css = Object.keys(basic).map(function (cls) {
+    return '.' + cls + _fsts.JS.styleToCss(basic[cls]);
+}).join('');
 
 Object.keys(queries).forEach(function (key) {
     var styles = queries[key];
@@ -353,7 +363,6 @@ Object.keys(queries).forEach(function (key) {
     }).join('') + '}';
 });
 
-console.log(css);
 var style = function style(props) {
     return _react2.default.createElement('style', { dangerouslySetInnerHTML: { __html: css } });
 };

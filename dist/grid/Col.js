@@ -127,7 +127,7 @@ var Col = function (_Component) {
                 );
             }
 
-            var cls = 'fluid-react-col';
+            var cls = 'fluid-react-col __fr_grid_col__';
             var _props2 = this.props,
                 xs = _props2.xs,
                 sm = _props2.sm,

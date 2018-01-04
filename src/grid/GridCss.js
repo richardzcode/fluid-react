@@ -1,6 +1,14 @@
 import React from 'react';
 import { JS } from 'fsts';
 
+const basic = {
+    __fr_grid_col__: {
+        flex: '1 0 0',
+        maxWidth: '100%',
+        boxSizing: 'border-box'
+    }
+};
+
 const queries = {};
 
 queries['@media (max-width: 575px)'] = {
@@ -333,7 +341,9 @@ queries['@media (min-width: 1200px)'] = {
     }
 };
 
-let css = '';
+let css = Object.keys(basic)
+    .map(cls => '.' + cls + JS.styleToCss(basic[cls]))
+    .join('');
 
 Object.keys(queries)
     .forEach(key => {
@@ -345,7 +355,6 @@ Object.keys(queries)
             + '}';
     });
 
-console.log(css);
 const style = props => (
     <style dangerouslySetInnerHTML={{__html: css }}></style>
 )
