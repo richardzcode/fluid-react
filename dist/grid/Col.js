@@ -22,6 +22,10 @@ var _GridStyle = require('./GridStyle');
 
 var _GridStyle2 = _interopRequireDefault(_GridStyle);
 
+var _GridCss = require('./GridCss');
+
+var _GridCss2 = _interopRequireDefault(_GridCss);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31,6 +35,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var logger = new _fsts.Logger('Col');
+
+var GridCssRendered = false;
 
 var Col = function (_Component) {
     _inherits(Col, _Component);
@@ -109,15 +115,60 @@ var Col = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var style = this.props.style;
+            if (_fsts.Device.hasWindow()) {
+                var style = this.props.style;
 
-            var styl = Object.assign({}, style, this.calcStyle());
-            var p = _fsts.JS.lessProps(this.props, 'style');
-            return _react2.default.createElement(
-                'div',
-                _extends({ className: 'fluid-react-col', style: styl }, p),
-                this.props.children
-            );
+                var _styl = Object.assign({}, style, this.calcStyle());
+                var _p = _fsts.JS.lessProps(this.props, 'style');
+                return _react2.default.createElement(
+                    'div',
+                    _extends({ className: 'fluid-react-col', style: _styl }, _p),
+                    this.props.children
+                );
+            }
+
+            var cls = 'fluid-react-col';
+            var _props2 = this.props,
+                xs = _props2.xs,
+                sm = _props2.sm,
+                md = _props2.md,
+                lg = _props2.lg,
+                xl = _props2.xl;
+
+            if (xs) {
+                cls += ' __fr_grid_xs_' + xs + '__';
+            }
+            if (sm) {
+                cls += ' __fr_grid_sm_' + sm + '__';
+            }
+            if (md) {
+                cls += ' __fr_grid_md_' + md + '__';
+            }
+            if (lg) {
+                cls += ' __fr_grid_lg_' + lg + '__';
+            }
+            if (xl) {
+                cls += ' __fr_grid_xl_' + xl + '__';
+            }
+            if (GridCssRendered) {
+                return _react2.default.createElement(
+                    'div',
+                    _extends({ className: 'fluid-react-col', style: styl }, p),
+                    this.props.children
+                );
+            } else {
+                GridCssRendered = true;
+                return _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement(_GridCss2.default, null),
+                    _react2.default.createElement(
+                        'div',
+                        _extends({ className: 'fluid-react-col', style: styl }, p),
+                        this.props.children
+                    )
+                );
+            }
         }
     }]);
 

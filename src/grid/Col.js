@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 
-import { Logger, JS } from 'fsts';
+import { Logger, JS, Device } from 'fsts';
 
 import MediaQuery from '../media';
 import GridStyle from './GridStyle';
+import GridCss from './GridCss';
 
 const logger = new Logger('Col');
+
+let GridCssRendered = false;
 
 export default class Col extends Component {
     constructor(props) {
@@ -66,17 +69,44 @@ export default class Col extends Component {
     }
 
     render() {
-        const { style } = this.props;
-        const styl = Object.assign(
-            {},
-            style,
-            this.calcStyle()
-        );
-        const p = JS.lessProps(this.props, 'style');
-        return (
-            <div className="fluid-react-col" style={styl} {...p}>
-                {this.props.children}
-            </div>
-        )
+        if (Device.hasWindow()) {
+            const { style } = this.props;
+            const styl = Object.assign(
+                {},
+                style,
+                this.calcStyle()
+            );
+            const p = JS.lessProps(this.props, 'style');
+            return (
+                <div className="fluid-react-col" style={styl} {...p}>
+                    {this.props.children}
+                </div>
+            )
+        }
+
+        let cls = 'fluid-react-col';
+        const { xs, sm, md, lg, xl } = this.props;
+        if (xs) { cls += ' __fr_grid_xs_' + xs + '__'; }
+        if (sm) { cls += ' __fr_grid_sm_' + sm + '__'; }
+        if (md) { cls += ' __fr_grid_md_' + md + '__'; }
+        if (lg) { cls += ' __fr_grid_lg_' + lg + '__'; }
+        if (xl) { cls += ' __fr_grid_xl_' + xl + '__'; }
+        if (GridCssRendered) {
+            return (
+                <div className="fluid-react-col" style={styl} {...p}>
+                    {this.props.children}
+                </div>
+            )
+        } else {
+            GridCssRendered = true;
+            return (
+                <span>
+                    <GridCss />
+                    <div className="fluid-react-col" style={styl} {...p}>
+                        {this.props.children}
+                    </div>
+                </span>
+            )
+        }
     }
 }
