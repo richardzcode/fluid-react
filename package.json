@@ -1,6 +1,6 @@
 {
   "name": "fluid-react",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "Grid system for React",
   "main": "dist/index.js",
   "scripts": {
