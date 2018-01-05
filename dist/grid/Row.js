@@ -30,8 +30,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var GridCssRendered = false;
-
 var Row = function (_Component) {
     _inherits(Row, _Component);
 
@@ -49,7 +47,7 @@ var Row = function (_Component) {
             var styl = Object.assign({}, style, _GridStyle2.default.row);
             var p = _fsts.JS.lessProps(this.props, 'style');
 
-            if (_fsts.Device.hasWindow() || GridCssRendered) {
+            if (_fsts.Device.hasWindow()) {
                 return _react2.default.createElement(
                     'div',
                     _extends({ className: 'fluid-react-row', style: styl }, p),
@@ -57,7 +55,6 @@ var Row = function (_Component) {
                 );
             }
 
-            GridCssRendered = true;
             return _react2.default.createElement(
                 'div',
                 _extends({ className: 'fluid-react-row', style: styl }, p),
