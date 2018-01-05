@@ -88,6 +88,36 @@ const _Code = (props) => (
 )
 const Code = withMediaQuery(_Code);
 
+const _Article = (props) => (
+    <article {...props}>{props.children}</article>
+)
+const Article = withMediaQuery(_Article);
+
+const _Aside = (props) => (
+    <aside {...props}>{props.children}</aside>
+)
+const Aside = withMediaQuery(_Aside);
+
+const _Img = (props) => (
+    <img {...props}>{props.children}</img>
+)
+const Img = withMediaQuery(_Img);
+
+const _Canvas = (props) => (
+    <canvas {...props}>{props.children}</canvas>
+)
+const Canvas = withMediaQuery(_Canvas);
+
+const _Audio = (props) => (
+    <audio {...props}>{props.children}</audio>
+)
+const Audio = withMediaQuery(_Audio);
+
+const _Video = (props) => (
+    <video {...props}>{props.children}</video>
+)
+const Video = withMediaQuery(_Video);
+
 const _A = (props) => (
     <a {...props}>{props.children}</a>
 )
@@ -146,6 +176,12 @@ export {
     Button,
     Pre,
     Code,
+    Article,
+    Aside,
+    Img,
+    Canvas,
+    Audio,
+    Video,
     A,
     H1,
     H2,

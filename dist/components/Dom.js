@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Hr = exports.H6 = exports.H5 = exports.H4 = exports.H3 = exports.H2 = exports.H1 = exports.A = exports.Code = exports.Pre = exports.Button = exports.Option = exports.Select = exports.Textarea = exports.Input = exports.Form = exports.Footer = exports.Header = exports.Section = exports.Li = exports.Ul = exports.Label = exports.Span = exports.P = exports.Div = undefined;
+exports.Hr = exports.H6 = exports.H5 = exports.H4 = exports.H3 = exports.H2 = exports.H1 = exports.A = exports.Video = exports.Audio = exports.Canvas = exports.Img = exports.Aside = exports.Article = exports.Code = exports.Pre = exports.Button = exports.Option = exports.Select = exports.Textarea = exports.Input = exports.Form = exports.Footer = exports.Header = exports.Section = exports.Li = exports.Ul = exports.Label = exports.Span = exports.P = exports.Div = undefined;
 
 var _react = require('react');
 
@@ -168,6 +168,60 @@ var _Code = function _Code(props) {
 };
 var Code = (0, _css.withMediaQuery)(_Code);
 
+var _Article = function _Article(props) {
+    return _react2.default.createElement(
+        'article',
+        props,
+        props.children
+    );
+};
+var Article = (0, _css.withMediaQuery)(_Article);
+
+var _Aside = function _Aside(props) {
+    return _react2.default.createElement(
+        'aside',
+        props,
+        props.children
+    );
+};
+var Aside = (0, _css.withMediaQuery)(_Aside);
+
+var _Img = function _Img(props) {
+    return _react2.default.createElement(
+        'img',
+        props,
+        props.children
+    );
+};
+var Img = (0, _css.withMediaQuery)(_Img);
+
+var _Canvas = function _Canvas(props) {
+    return _react2.default.createElement(
+        'canvas',
+        props,
+        props.children
+    );
+};
+var Canvas = (0, _css.withMediaQuery)(_Canvas);
+
+var _Audio = function _Audio(props) {
+    return _react2.default.createElement(
+        'audio',
+        props,
+        props.children
+    );
+};
+var Audio = (0, _css.withMediaQuery)(_Audio);
+
+var _Video = function _Video(props) {
+    return _react2.default.createElement(
+        'video',
+        props,
+        props.children
+    );
+};
+var Video = (0, _css.withMediaQuery)(_Video);
+
 var _A = function _A(props) {
     return _react2.default.createElement(
         'a',
@@ -257,6 +311,12 @@ exports.Option = Option;
 exports.Button = Button;
 exports.Pre = Pre;
 exports.Code = Code;
+exports.Article = Article;
+exports.Aside = Aside;
+exports.Img = Img;
+exports.Canvas = Canvas;
+exports.Audio = Audio;
+exports.Video = Video;
 exports.A = A;
 exports.H1 = H1;
 exports.H2 = H2;
