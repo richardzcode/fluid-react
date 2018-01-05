@@ -93,6 +93,8 @@ export default class Col extends Component {
         }
 
         let cls = 'fluid-react-col __fr_grid_col__';
+        const { col } = this.props;
+        if (col) { cls += ' __fr_grid_col_' + col + '__'; }
         const counts = this.cellCounts();
         if (counts[0]) { // cellCounts ensures if there is any number then all should have number
             cls += ' __fr_grid_xs_' + counts[0] + '__';

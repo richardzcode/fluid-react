@@ -133,6 +133,11 @@ var Col = function (_Component) {
             }
 
             var cls = 'fluid-react-col __fr_grid_col__';
+            var col = this.props.col;
+
+            if (col) {
+                cls += ' __fr_grid_col_' + col + '__';
+            }
             var counts = this.cellCounts();
             if (counts[0]) {
                 // cellCounts ensures if there is any number then all should have number

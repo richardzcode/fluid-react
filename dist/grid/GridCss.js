@@ -17,6 +17,69 @@ var basic = {
         flex: '1 0 0',
         maxWidth: '100%',
         boxSizing: 'border-box'
+    },
+    __fr_grid_col_0__: {
+        display: 'none'
+    },
+    __fr_grid_col_1__: {
+        flex: '0 0 8.33333333%',
+        maxWidth: '8.33333333%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_2__: {
+        flex: '0 0 16.66666667%',
+        maxWidth: '16.66666667%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_3__: {
+        flex: '0 0 25%',
+        maxWidth: '25%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_4__: {
+        flex: '0 0 33.33333333%',
+        maxWidth: '33.33333333%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_5__: {
+        flex: '0 0 41.66666667%',
+        maxWidth: '41.66666667%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_6__: {
+        flex: '0 0 50%',
+        maxWidth: '50%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_7__: {
+        flex: '0 0 58.33333333%',
+        maxWidth: '58.33333333%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_8__: {
+        flex: '0 0 66.66666667%',
+        maxWidth: '66.66666667%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_9__: {
+        flex: '0 0 75%',
+        maxWidth: '75%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_10__: {
+        flex: '0 0 83.33333333%',
+        maxWidth: '83.33333333%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_11__: {
+        flex: '0 0 91.66666667%',
+        maxWidth: '91.66666667%',
+        boxSizing: 'border-box'
+    },
+    __fr_grid_col_12__: {
+        flex: '0 0 100%',
+        maxWidth: '100%',
+        boxSizing: 'border-box'
     }
 };
 
