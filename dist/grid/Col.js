@@ -139,7 +139,7 @@ var Col = function (_Component) {
                 cls += ' __fr_grid_col_' + col + '__';
             }
             var counts = this.cellCounts();
-            if (counts[0]) {
+            if (counts[0] !== '') {
                 // cellCounts ensures if there is any number then all should have number
                 cls += ' __fr_grid_xs_' + counts[0] + '__';
                 cls += ' __fr_grid_sm_' + counts[1] + '__';

@@ -96,7 +96,8 @@ export default class Col extends Component {
         const { col } = this.props;
         if (col) { cls += ' __fr_grid_col_' + col + '__'; }
         const counts = this.cellCounts();
-        if (counts[0]) { // cellCounts ensures if there is any number then all should have number
+        if (counts[0] !== '') {
+            // cellCounts ensures if there is any number then all should have number
             cls += ' __fr_grid_xs_' + counts[0] + '__';
             cls += ' __fr_grid_sm_' + counts[1] + '__';
             cls += ' __fr_grid_md_' + counts[2] + '__';
