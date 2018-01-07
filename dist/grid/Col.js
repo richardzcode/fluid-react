@@ -63,7 +63,7 @@ var Col = function (_Component) {
             // back fill
             for (var i = 0; i < counts.length; i++) {
                 var val = counts[i];
-                if (val) {
+                if (val !== '') {
                     for (var j = i - 1; j >= 0; j--) {
                         counts[j] = val;
                     }
@@ -73,7 +73,7 @@ var Col = function (_Component) {
 
             // forward fill
             for (var i = 1; i < counts.length; i++) {
-                if (!counts[i]) {
+                if (counts[i] === '') {
                     counts[i] = counts[i - 1];
                 }
             }

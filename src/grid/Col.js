@@ -31,7 +31,7 @@ export default class Col extends Component {
         // back fill
         for (var i = 0; i < counts.length; i++) {
             const val = counts[i];
-            if (val) {
+            if (val !== '') {
                 for (var j = i - 1; j >= 0; j--) { counts[j] = val; }
                 break;
             }
@@ -39,7 +39,7 @@ export default class Col extends Component {
 
         // forward fill
         for (var i = 1; i < counts.length; i++) {
-            if (!counts[i]) { counts[i] = counts[i - 1]; }
+            if (counts[i] === '') { counts[i] = counts[i - 1]; }
         }
 
         return counts;
