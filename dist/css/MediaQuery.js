@@ -115,7 +115,7 @@ function withMediaQuery(Comp) {
 
                 var p = _fsts.JS.lessProps(this.props, 'style');
                 return _react2.default.createElement(
-                    'span',
+                    _react.Fragment,
                     null,
                     _react2.default.createElement(Comp, _extends({}, p, { className: cls })),
                     _react2.default.createElement('style', { dangerouslySetInnerHTML: { __html: css } })

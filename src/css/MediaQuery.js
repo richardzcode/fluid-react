@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { JS, Device } from 'fsts';
 
@@ -77,10 +77,10 @@ export function withMediaQuery(Comp) {
 
             const p = JS.lessProps(this.props, 'style');
             return (
-                <span>
+                <Fragment>
                     <Comp {...p} className={cls} />
                     <style dangerouslySetInnerHTML={{__html: css }}></style>
-                </span>
+                </Fragment>
             );
         }
     }
