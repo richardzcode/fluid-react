@@ -123,7 +123,7 @@ var Col = function (_Component) {
             if (_fsts.Device.hasWindow()) {
                 var style = this.props.style;
 
-                var styl = Object.assign({}, style, this.calcStyle());
+                var styl = Object.assign({}, this.calcStyle(), style);
                 var p = _fsts.JS.lessProps(this.props, 'style');
                 return _react2.default.createElement(
                     'div',

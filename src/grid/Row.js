@@ -10,8 +10,8 @@ export default class Row extends Component {
         const { style } = this.props;
         const styl = Object.assign(
             {},
-            style,
-            GridStyle.row
+            GridStyle.row,
+            style
         );
         const p = JS.lessProps(this.props, 'style');
 

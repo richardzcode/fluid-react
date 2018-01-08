@@ -81,8 +81,8 @@ export default class Col extends Component {
             const { style } = this.props;
             const styl = Object.assign(
                 {},
-                style,
-                this.calcStyle()
+                this.calcStyle(),
+                style
             );
             const p = JS.lessProps(this.props, 'style');
             return (

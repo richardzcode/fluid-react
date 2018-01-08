@@ -44,7 +44,7 @@ var Row = function (_Component) {
         value: function render() {
             var style = this.props.style;
 
-            var styl = Object.assign({}, style, _GridStyle2.default.row);
+            var styl = Object.assign({}, _GridStyle2.default.row, style);
             var p = _fsts.JS.lessProps(this.props, 'style');
 
             if (_fsts.Device.hasWindow()) {
