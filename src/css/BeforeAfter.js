@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import { JS } from 'fsts';
 
-export function withPseudo(Comp) {
+export function withBeforeAfter(Comp) {
     return class extends Component {
         render() {
             const style = this.props.style || {}
@@ -34,7 +33,7 @@ const beforeAfter = (el) => {
     }
 
     return (
-        <span className="fluid-react-psudo-wrapper" style={{position: 'relative'}}>
+        <span className="fluid-react-before-after-wrapper" style={{position: 'relative'}}>
             {beforeEl}
             {el}
             {afterEl}
