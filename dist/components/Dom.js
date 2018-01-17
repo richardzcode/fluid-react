@@ -22,7 +22,7 @@ var _Div = function _Div(props) {
         props.children
     );
 };
-var Div = (0, _css.withMediaQuery)(_Div);
+var Div = (0, _css.withCss)(_Div);
 
 var _P = function _P(props) {
     return _react2.default.createElement(
@@ -31,7 +31,7 @@ var _P = function _P(props) {
         props.children
     );
 };
-var P = (0, _css.withMediaQuery)(_P);
+var P = (0, _css.withCss)(_P);
 
 var _Span = function _Span(props) {
     return _react2.default.createElement(
@@ -40,7 +40,7 @@ var _Span = function _Span(props) {
         props.children
     );
 };
-var Span = (0, _css.withMediaQuery)(_Span);
+var Span = (0, _css.withCss)(_Span);
 
 var _Label = function _Label(props) {
     return _react2.default.createElement(
@@ -49,7 +49,7 @@ var _Label = function _Label(props) {
         props.children
     );
 };
-var Label = (0, _css.withMediaQuery)(_Label);
+var Label = (0, _css.withCss)(_Label);
 
 var _Ul = function _Ul(props) {
     return _react2.default.createElement(
@@ -58,7 +58,7 @@ var _Ul = function _Ul(props) {
         props.children
     );
 };
-var Ul = (0, _css.withMediaQuery)(_Ul);
+var Ul = (0, _css.withCss)(_Ul);
 
 var _Li = function _Li(props) {
     return _react2.default.createElement(
@@ -67,7 +67,7 @@ var _Li = function _Li(props) {
         props.children
     );
 };
-var Li = (0, _css.withMediaQuery)(_Li);
+var Li = (0, _css.withCss)(_Li);
 
 var _Section = function _Section(props) {
     return _react2.default.createElement(
@@ -76,7 +76,7 @@ var _Section = function _Section(props) {
         props.children
     );
 };
-var Section = (0, _css.withMediaQuery)(_Section);
+var Section = (0, _css.withCss)(_Section);
 
 var _Header = function _Header(props) {
     return _react2.default.createElement(
@@ -85,7 +85,7 @@ var _Header = function _Header(props) {
         props.children
     );
 };
-var Header = (0, _css.withMediaQuery)(_Header);
+var Header = (0, _css.withCss)(_Header);
 
 var _Footer = function _Footer(props) {
     return _react2.default.createElement(
@@ -94,7 +94,7 @@ var _Footer = function _Footer(props) {
         props.children
     );
 };
-var Footer = (0, _css.withMediaQuery)(_Footer);
+var Footer = (0, _css.withCss)(_Footer);
 
 var _Form = function _Form(props) {
     return _react2.default.createElement(
@@ -103,7 +103,7 @@ var _Form = function _Form(props) {
         props.children
     );
 };
-var Form = (0, _css.withMediaQuery)(_Form);
+var Form = (0, _css.withCss)(_Form);
 
 var _Input = function _Input(props) {
     return _react2.default.createElement(
@@ -112,7 +112,7 @@ var _Input = function _Input(props) {
         props.children
     );
 };
-var Input = (0, _css.withMediaQuery)(_Input);
+var Input = (0, _css.withCss)(_Input);
 
 var _Textarea = function _Textarea(props) {
     return _react2.default.createElement(
@@ -121,7 +121,7 @@ var _Textarea = function _Textarea(props) {
         props.children
     );
 };
-var Textarea = (0, _css.withMediaQuery)(_Textarea);
+var Textarea = (0, _css.withCss)(_Textarea);
 
 var _Select = function _Select(props) {
     return _react2.default.createElement(
@@ -130,7 +130,7 @@ var _Select = function _Select(props) {
         props.children
     );
 };
-var Select = (0, _css.withMediaQuery)(_Select);
+var Select = (0, _css.withCss)(_Select);
 
 var _Option = function _Option(props) {
     return _react2.default.createElement(
@@ -139,7 +139,7 @@ var _Option = function _Option(props) {
         props.children
     );
 };
-var Option = (0, _css.withMediaQuery)(_Option);
+var Option = (0, _css.withCss)(_Option);
 
 var _Button = function _Button(props) {
     return _react2.default.createElement(
@@ -148,7 +148,7 @@ var _Button = function _Button(props) {
         props.children
     );
 };
-var Button = (0, _css.withMediaQuery)(_Button);
+var Button = (0, _css.withCss)(_Button);
 
 var _Pre = function _Pre(props) {
     return _react2.default.createElement(
@@ -157,7 +157,7 @@ var _Pre = function _Pre(props) {
         props.children
     );
 };
-var Pre = (0, _css.withMediaQuery)(_Pre);
+var Pre = (0, _css.withCss)(_Pre);
 
 var _Code = function _Code(props) {
     return _react2.default.createElement(
@@ -166,7 +166,7 @@ var _Code = function _Code(props) {
         props.children
     );
 };
-var Code = (0, _css.withMediaQuery)(_Code);
+var Code = (0, _css.withCss)(_Code);
 
 var _Article = function _Article(props) {
     return _react2.default.createElement(
@@ -175,7 +175,7 @@ var _Article = function _Article(props) {
         props.children
     );
 };
-var Article = (0, _css.withMediaQuery)(_Article);
+var Article = (0, _css.withCss)(_Article);
 
 var _Aside = function _Aside(props) {
     return _react2.default.createElement(
@@ -184,7 +184,7 @@ var _Aside = function _Aside(props) {
         props.children
     );
 };
-var Aside = (0, _css.withMediaQuery)(_Aside);
+var Aside = (0, _css.withCss)(_Aside);
 
 var _Img = function _Img(props) {
     return _react2.default.createElement(
@@ -193,7 +193,7 @@ var _Img = function _Img(props) {
         props.children
     );
 };
-var Img = (0, _css.withMediaQuery)(_Img);
+var Img = (0, _css.withCss)(_Img);
 
 var _Canvas = function _Canvas(props) {
     return _react2.default.createElement(
@@ -202,7 +202,7 @@ var _Canvas = function _Canvas(props) {
         props.children
     );
 };
-var Canvas = (0, _css.withMediaQuery)(_Canvas);
+var Canvas = (0, _css.withCss)(_Canvas);
 
 var _Audio = function _Audio(props) {
     return _react2.default.createElement(
@@ -211,7 +211,7 @@ var _Audio = function _Audio(props) {
         props.children
     );
 };
-var Audio = (0, _css.withMediaQuery)(_Audio);
+var Audio = (0, _css.withCss)(_Audio);
 
 var _Video = function _Video(props) {
     return _react2.default.createElement(
@@ -220,7 +220,7 @@ var _Video = function _Video(props) {
         props.children
     );
 };
-var Video = (0, _css.withMediaQuery)(_Video);
+var Video = (0, _css.withCss)(_Video);
 
 var _A = function _A(props) {
     return _react2.default.createElement(
@@ -229,7 +229,7 @@ var _A = function _A(props) {
         props.children
     );
 };
-var A = (0, _css.withMediaQuery)(_A);
+var A = (0, _css.withCss)(_A);
 
 var _H1 = function _H1(props) {
     return _react2.default.createElement(
@@ -238,7 +238,7 @@ var _H1 = function _H1(props) {
         props.children
     );
 };
-var H1 = (0, _css.withMediaQuery)(_H1);
+var H1 = (0, _css.withCss)(_H1);
 
 var _H2 = function _H2(props) {
     return _react2.default.createElement(
@@ -247,7 +247,7 @@ var _H2 = function _H2(props) {
         props.children
     );
 };
-var H2 = (0, _css.withMediaQuery)(_H2);
+var H2 = (0, _css.withCss)(_H2);
 
 var _H3 = function _H3(props) {
     return _react2.default.createElement(
@@ -256,7 +256,7 @@ var _H3 = function _H3(props) {
         props.children
     );
 };
-var H3 = (0, _css.withMediaQuery)(_H3);
+var H3 = (0, _css.withCss)(_H3);
 
 var _H4 = function _H4(props) {
     return _react2.default.createElement(
@@ -265,7 +265,7 @@ var _H4 = function _H4(props) {
         props.children
     );
 };
-var H4 = (0, _css.withMediaQuery)(_H4);
+var H4 = (0, _css.withCss)(_H4);
 
 var _H5 = function _H5(props) {
     return _react2.default.createElement(
@@ -274,7 +274,7 @@ var _H5 = function _H5(props) {
         props.children
     );
 };
-var H5 = (0, _css.withMediaQuery)(_H5);
+var H5 = (0, _css.withCss)(_H5);
 
 var _H6 = function _H6(props) {
     return _react2.default.createElement(
@@ -283,7 +283,7 @@ var _H6 = function _H6(props) {
         props.children
     );
 };
-var H6 = (0, _css.withMediaQuery)(_H6);
+var H6 = (0, _css.withCss)(_H6);
 
 var _Hr = function _Hr(props) {
     return _react2.default.createElement(
@@ -292,7 +292,7 @@ var _Hr = function _Hr(props) {
         props.children
     );
 };
-var Hr = (0, _css.withMediaQuery)(_Hr);
+var Hr = (0, _css.withCss)(_Hr);
 
 exports.Div = Div;
 exports.P = P;
