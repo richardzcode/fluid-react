@@ -1,162 +1,162 @@
 import React from 'react';
 
-import { withCss } from '../css';
+import { withMediaQuery } from '../css';
 import { JS } from 'fsts';
 
 const _Div = (props) => (
     <div {...props}>{props.children}</div>
 )
-const Div = withCss(_Div);
+const Div = withMediaQuery(_Div);
 
 const _P = (props) => (
     <p {...props}>{props.children}</p>
 )
-const P = withCss(_P);
+const P = withMediaQuery(_P);
 
 const _Span = (props) => (
     <span {...props}>{props.children}</span>
 )
-const Span = withCss(_Span);
+const Span = withMediaQuery(_Span);
 
 const _Label = (props) => (
     <label {...props}>{props.children}</label>
 )
-const Label = withCss(_Label);
+const Label = withMediaQuery(_Label);
 
 const _Ul = (props) => (
     <ul {...props}>{props.children}</ul>
 )
-const Ul = withCss(_Ul);
+const Ul = withMediaQuery(_Ul);
 
 const _Li = (props) => (
     <li {...props}>{props.children}</li>
 )
-const Li = withCss(_Li);
+const Li = withMediaQuery(_Li);
 
 const _Section = (props) => (
     <section {...props}>{props.children}</section>
 )
-const Section = withCss(_Section);
+const Section = withMediaQuery(_Section);
 
 const _Header = (props) => (
     <header {...props}>{props.children}</header>
 )
-const Header = withCss(_Header);
+const Header = withMediaQuery(_Header);
 
 const _Footer = (props) => (
     <footer {...props}>{props.children}</footer>
 )
-const Footer = withCss(_Footer);
+const Footer = withMediaQuery(_Footer);
 
 const _Form = (props) => (
     <form {...props}>{props.children}</form>
 )
-const Form = withCss(_Form);
+const Form = withMediaQuery(_Form);
 
 const _Input = (props) => (
     <input {...props}>{props.children}</input>
 )
-const Input = withCss(_Input);
+const Input = withMediaQuery(_Input);
 
 const _Textarea = (props) => (
     <textarea {...props}>{props.children}</textarea>
 )
-const Textarea = withCss(_Textarea);
+const Textarea = withMediaQuery(_Textarea);
 
 const _Select = (props) => (
     <select {...props}>{props.children}</select>
 )
-const Select = withCss(_Select);
+const Select = withMediaQuery(_Select);
 
 const _Option = (props) => (
     <option {...props}>{props.children}</option>
 )
-const Option = withCss(_Option);
+const Option = withMediaQuery(_Option);
 
 const _Button = (props) => (
     <button {...props}>{props.children}</button>
 )
-const Button = withCss(_Button);
+const Button = withMediaQuery(_Button);
 
 const _Pre = (props) => (
     <pre {...props}>{props.children}</pre>
 )
-const Pre = withCss(_Pre);
+const Pre = withMediaQuery(_Pre);
 
 const _Code = (props) => (
     <code {...props}>{props.children}</code>
 )
-const Code = withCss(_Code);
+const Code = withMediaQuery(_Code);
 
 const _Article = (props) => (
     <article {...props}>{props.children}</article>
 )
-const Article = withCss(_Article);
+const Article = withMediaQuery(_Article);
 
 const _Aside = (props) => (
     <aside {...props}>{props.children}</aside>
 )
-const Aside = withCss(_Aside);
+const Aside = withMediaQuery(_Aside);
 
 const _Img = (props) => (
     <img {...props}>{props.children}</img>
 )
-const Img = withCss(_Img);
+const Img = withMediaQuery(_Img);
 
 const _Canvas = (props) => (
     <canvas {...props}>{props.children}</canvas>
 )
-const Canvas = withCss(_Canvas);
+const Canvas = withMediaQuery(_Canvas);
 
 const _Audio = (props) => (
     <audio {...props}>{props.children}</audio>
 )
-const Audio = withCss(_Audio);
+const Audio = withMediaQuery(_Audio);
 
 const _Video = (props) => (
     <video {...props}>{props.children}</video>
 )
-const Video = withCss(_Video);
+const Video = withMediaQuery(_Video);
 
 const _A = (props) => (
     <a {...props}>{props.children}</a>
 )
-const A = withCss(_A);
+const A = withMediaQuery(_A);
 
 const _H1 = (props) => (
     <h1 {...props}>{props.children}</h1>
 )
-const H1 = withCss(_H1);
+const H1 = withMediaQuery(_H1);
 
 const _H2 = (props) => (
     <h2 {...props}>{props.children}</h2>
 )
-const H2 = withCss(_H2);
+const H2 = withMediaQuery(_H2);
 
 const _H3 = (props) => (
     <h3 {...props}>{props.children}</h3>
 )
-const H3 = withCss(_H3);
+const H3 = withMediaQuery(_H3);
 
 const _H4 = (props) => (
     <h4 {...props}>{props.children}</h4>
 )
-const H4 = withCss(_H4);
+const H4 = withMediaQuery(_H4);
 
 const _H5 = (props) => (
     <h5 {...props}>{props.children}</h5>
 )
-const H5 = withCss(_H5);
+const H5 = withMediaQuery(_H5);
 
 const _H6 = (props) => (
     <h6 {...props}>{props.children}</h6>
 )
-const H6 = withCss(_H6);
+const H6 = withMediaQuery(_H6);
 
 const _Hr = (props) => (
     <hr {...props}>{props.children}</hr>
 )
-const Hr = withCss(_Hr);
+const Hr = withMediaQuery(_Hr);
 
 export {
     Div,
